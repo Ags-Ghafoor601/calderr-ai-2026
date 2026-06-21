@@ -1,0 +1,25 @@
+# Virtual environment
+calderr-env/
+
+# Environment variables (secrets — NEVER commit this)
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Anaconda
+.conda/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code / Antigravity
+.vscode/
+.idea/
