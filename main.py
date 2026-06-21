@@ -1,0 +1,1 @@
+print("CalderR AI Project - Docker test successful")
