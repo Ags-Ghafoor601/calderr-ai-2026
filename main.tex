@@ -1,0 +1,177 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in, headheight=15pt}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip} % Adds space between paragraphs instead of indenting
+
+% --- Colors ---
+% Define CalderR-inspired corporate colors
+\definecolor{primary}{RGB}{12, 74, 110}     % Dark Slate Blue
+\definecolor{secondary}{RGB}{2, 132, 199}   % Sky Blue
+\definecolor{accent}{RGB}{240, 249, 255}    % Very Light Blue for backgrounds
+\definecolor{darkgray}{RGB}{71, 85, 105}
+
+% --- Hyperref Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    filecolor=secondary,      
+    urlcolor=secondary,
+    pdftitle={Week 1 Report - CalderR Internship},
+    pdfpagemode=FullScreen,
+}
+
+% --- Header and Footer Setup ---
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{darkgray}{\textbf{Week 1 Report}}}
+\lhead{\textcolor{darkgray}{CalderR Agentic AI Internship, 2026}}
+\cfoot{\textcolor{darkgray}{Page \thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- Section Formatting ---
+\titleformat{\section}
+  {\LARGE\bfseries\color{primary}}{\thesection}{1em}{}[{\titlerule[1pt]}]
+
+\titleformat{\subsection}
+  {\Large\bfseries\color{secondary}}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\large\bfseries\color{primary}}{\thesubsubsection}{1em}{}
+
+% --- Document Starts Here ---
+\begin{document}
+
+% --- Title Page ---
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    
+    {\Huge \textbf{\textcolor{primary}{Agentic AI Engineering Internship}}} \\[0.5cm]
+    {\Huge \textbf{\textcolor{primary}{2026}}} \\[1.5cm]
+    
+    {\LARGE \textbf{Week 1 Comprehensive Report}} \\[0.5cm]
+    {\Large \textit{AI Fundamentals \& Agentic AI Foundations}} \\[2.5cm]
+    
+    \begin{tcolorbox}[colback=accent, colframe=primary, rounded corners, boxrule=1.5pt, width=0.7\textwidth, arc=4mm]
+        \centering
+        \vspace{0.3cm}
+        {\Large \textbf{Prepared By:}} \\[0.2cm]
+        {\Large Ghafoor} \\[0.4cm]
+        {\large \textbf{Date:}} \\
+        {\large \today}
+        \vspace{0.3cm}
+    \end{tcolorbox}
+    
+    \vfill
+    
+    {\huge \textbf{\textcolor{secondary}{CalderR.}}} \\[0.2cm]
+    {\large \textit{RETHINKING $\cdot$ HOW $\cdot$ WORK $\cdot$ WORKS}}
+    \vspace*{1cm}
+\end{titlepage}
+
+% --- Table of Contents ---
+\tableofcontents
+\newpage
+
+% --- Section 1: Executive Summary ---
+\section{Executive Summary}
+This report outlines the technical achievements and learning outcomes completed during Week 1 of the CalderR Agentic AI Engineering Internship. The core objective of the week was to establish a robust foundation in Large Language Models (LLMs) and transition from traditional reactive AI paradigms to proactive, agentic systems.
+
+Over the course of the week, three foundational labs were completed, focusing on manual conversation state management, building ReAct (Reasoning and Acting) loops from scratch, and systematically evaluating prompt engineering strategies. The week culminated in the successful deployment of two comprehensive projects: an \textbf{Intelligent CLI Assistant} (Intermediate) and an \textbf{AI-Powered Customer Support Platform} (Production). Both projects demonstrate a strong mastery of LangChain, the Groq API, conversational memory management, and modern software engineering practices.
+
+% --- Section 2: Projects Deep-Dive ---
+\section{Project Deliverables}
+
+This section provides a detailed architectural and functional breakdown of the two major projects built this week.
+
+\subsection{Production Project: AI-Powered Customer Support Platform}
+
+\begin{tcolorbox}[colback=accent, colframe=primary, title=\textbf{Project Overview}, boxrule=1pt]
+A production-ready, full-stack customer support chatbot featuring an asynchronous FastAPI backend, persistent SQLite memory, robust rate-limiting, and a modern React frontend with glassmorphism UI design. Fully containerized using Docker.
+\end{tcolorbox}
+
+\subsubsection{Architecture \& Tech Stack}
+The platform operates on a decoupled client-server architecture, ensuring high scalability and clean separation of concerns:
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Frontend:} React, Vite, Vanilla CSS (Custom Glassmorphism aesthetics).
+    \item \textbf{Backend:} FastAPI (Python), Uvicorn.
+    \item \textbf{AI/LLM Core:} LangChain, Groq API (\texttt{llama-3.1-8b-instant}).
+    \item \textbf{Database \& Memory:} SQLite, \texttt{SQLChatMessageHistory}.
+    \item \textbf{Infrastructure:} Docker, Docker Compose.
+\end{itemize}
+
+\subsubsection{Key Features \& Implementation Details}
+\begin{enumerate}
+    \item \textbf{Asynchronous REST API:} The FastAPI backend exposes highly efficient endpoints (\texttt{/sessions}, \texttt{/messages}, \texttt{/health}). Data validation is strictly enforced using Pydantic models.
+    \item \textbf{Persistent Conversational Memory:} Instead of relying on volatile in-memory buffers, the system utilizes LangChain's \texttt{SQLChatMessageHistory} to persist conversation turns to a local SQLite database (\texttt{chat\_history.db}). This allows users to retain context across disconnected sessions seamlessly.
+    \item \textbf{Production Safeguards (Middleware):} 
+    \begin{itemize}
+        \item \textbf{Rate Limiting:} Implemented a custom middleware that restricts IP addresses to 20 requests per 60-second sliding window, returning HTTP 429 upon violation.
+        \item \textbf{Logging:} Comprehensive request timing, method, and status code logging via custom HTTP middleware ensures observability.
+    \item \textbf{CORS:} Properly configured Cross-Origin Resource Sharing to securely allow frontend-backend communication.
+    \end{itemize}
+    \item \textbf{Containerization:} The entire stack is orchestrated via \texttt{docker-compose.yml}, allowing for a seamless, one-click spin-up environment spanning both the frontend client and the backend server.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\subsection{Intermediate Project: Intelligent CLI Assistant}
+
+\begin{tcolorbox}[colback=accent, colframe=primary, title=\textbf{Project Overview}, boxrule=1pt]
+A highly interactive, terminal-based AI assistant strictly scoped to the domains of Programming and Software Engineering. It leverages LangChain and the Rich library to deliver beautifully formatted markdown directly in the CLI.
+\end{tcolorbox}
+
+\subsubsection{Key Features \& Implementation Details}
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Domain-Specific Guardrails:} The assistant uses targeted system prompts to constrain discussions. If queried about non-technical topics (e.g., cooking), the assistant gracefully steers the user back to software development topics.
+    \item \textbf{Stateful Memory Management:} Utilizes LangChain's \texttt{RunnableWithMessage
+    History} to wrap a \texttt{ChatGroq} model. The assistant maintains a continuous short-term memory buffer within a given session, allowing it to accurately answer follow-up questions (e.g., "optimize that code using memoization").
+    \item \textbf{Premium Terminal UI (Rich):} The user experience is elevated by formatting model outputs dynamically using the \texttt{rich.markdown} and \texttt{rich.panel} modules, complete with syntax-highlighted code blocks, animated "thinking" spinners, and stylized user/assistant tags.
+    \item \textbf{Command Interception:} Implemented a custom input loop that successfully captures and executes CLI commands such as \texttt{/clear} (to wipe session history) and \texttt{/exit}.
+\end{itemize}
+
+% --- Section 3: Foundational Labs ---
+\section{Foundational Labs}
+
+\subsection{Lab 1.1: Groq CLI Chatbot}
+Constructed a base terminal chatbot integrating directly with the Groq Python SDK. 
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Memory Management:} Manually handled state by dynamically appending \texttt{user} and \texttt{assistant} role dictionaries to an evolving messages list.
+    \item \textbf{Token Analytics:} Implemented a custom \texttt{TokenTracker} class to monitor prompt, completion, and total token usage per turn, explicitly tracking the exponential growth of context windows.
+    \item \textbf{Model Switcher Enhancement:} Exceeded base requirements by adding a real-time \texttt{/model} selection feature, allowing hot-swapping between models (e.g., Qwen 3.6 - 27B) mid-conversation without dropping context.
+\end{itemize}
+
+\subsection{Lab 1.2: Manual ReAct Agent Loop}
+Developed an autonomous agent from scratch without relying on orchestration frameworks like LangChain or AutoGen.
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Cognitive Loop:} Implemented the fundamental \texttt{Thought $\rightarrow$ Action $\rightarrow$ Action Input $\rightarrow$ Observation} loop parsing raw text generated by the LLM.
+    \item \textbf{Tool Execution:} Built and integrated custom tools including a Fact Search against a mock knowledge base and a secure mathematical calculation sandbox utilizing a restricted \texttt{eval()} whitelist to prevent arbitrary code execution.
+    \item \textbf{Safeguards:} Implemented a hard limit (\texttt{MAX\_ITERATIONS = 6}) to prevent infinite reasoning loops.
+\end{itemize}
+
+\subsection{Lab 1.3: Prompt Engineering Evaluator}
+Conducted a systematic A/B test evaluating five distinct system prompts on a news summarization task.
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Findings:} Discovered that \textit{Chain of Thought} prompts yielded the highest accuracy by forcing the extraction of statistics before summarization. Conversely, strict format constraints (e.g., "Exactly 20 words") significantly damaged factual accuracy in favor of structural conciseness.
+    \item \textbf{Persona Implementation:} Demonstrated that adopting specialized personas heavily influenced output tone and density without requiring changes to the underlying model logic.
+\end{itemize}
+
+% --- Conclusion ---
+\section{Conclusion \& Next Steps}
+Week 1 successfully established the core building blocks required for advanced agentic workflows. By building systems manually before relying on abstractions like LangChain, a deep understanding of token usage, state management, and the ReAct architecture was achieved. Both projects met all required specifications, featuring strict type-hinting, environment variable security, and comprehensive documentation.
+
+Moving into Week 2, the focus will shift toward scaling these architectures with external memory (Vector Databases/RAG) and more complex multi-agent orchestration.
+
+\end{document}
