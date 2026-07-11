@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocPipeline — Intelligent Document Processing</title>
+    <meta name="description" content="Upload documents and extract structured information using AI-powered analysis.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a1a;
+            --bg-secondary: #111128;
+            --bg-card: #161638;
+            --bg-card-hover: #1c1c48;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888aa;
+            --text-muted: #555570;
+            --accent: #6c5ce7;
+            --accent-light: #a29bfe;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --success: #00cec9;
+            --warning: #fdcb6e;
+            --danger: #ff7675;
+            --border: #2a2a4a;
+            --border-light: #3a3a5a;
+            --radius: 12px;
+            --radius-sm: 8px;
+            --shadow: 0 4px 24px rgba(0,0,0,0.3);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background gradient animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0, 206, 201, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgPulse 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-5%, -5%) rotate(3deg); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-light), var(--success));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Upload Zone */
+        .upload-zone {
+            background: var(--bg-card);
+            border: 2px dashed var(--border-light);
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-zone::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent-glow), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .upload-zone:hover,
+        .upload-zone.dragover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .upload-zone:hover::before,
+        .upload-zone.dragover::before {
+            opacity: 1;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .upload-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .upload-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .upload-text p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .upload-text .formats {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .format-badge {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        #fileInput { display: none; }
+
+        /* Loading State */
+        .processing {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .processing.active { display: block; }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .processing-steps {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .processing-steps .step {
+            padding: 0.3rem 0;
+            transition: var(--transition);
+        }
+
+        .processing-steps .step.active {
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        .processing-steps .step.done {
+            color: var(--success);
+        }
+
+        /* Results */
+        .results {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .results.active { display: block; }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .result-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item {
+            background: var(--bg-card);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .section-card:hover {
+            border-color: var(--border-light);
+            box-shadow: var(--shadow);
+        }
+
+        .section-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(108, 92, 231, 0.15);
+            color: var(--accent-light);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(108, 92, 231, 0.3);
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: rgba(108, 92, 231, 0.25);
+            transform: translateY(-1px);
+        }
+
+        /* Entity styling */
+        .entity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .entity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--bg-secondary);
+            padding: 0.7rem 1rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        .entity-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .entity-type.person { background: rgba(253, 203, 110, 0.2); color: var(--warning); }
+        .entity-type.organization { background: rgba(108, 92, 231, 0.2); color: var(--accent-light); }
+        .entity-type.location { background: rgba(0, 206, 201, 0.2); color: var(--success); }
+        .entity-type.date { background: rgba(255, 118, 117, 0.2); color: var(--danger); }
+        .entity-type.money { background: rgba(85, 239, 196, 0.2); color: #55efc4; }
+        .entity-type.email { background: rgba(116, 185, 255, 0.2); color: #74b9ff; }
+        .entity-type.phone { background: rgba(162, 155, 254, 0.2); color: var(--accent-light); }
+        .entity-type.url { background: rgba(0, 206, 201, 0.2); color: var(--success); }
+
+        .entity-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Action items */
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.6rem;
+            border-left: 3px solid var(--border);
+        }
+
+        .action-item.high { border-left-color: var(--danger); }
+        .action-item.medium { border-left-color: var(--warning); }
+        .action-item.low { border-left-color: var(--success); }
+
+        .severity-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            min-width: 55px;
+            text-align: center;
+        }
+
+        .severity-badge.high { background: rgba(255, 118, 117, 0.2); color: var(--danger); }
+        .severity-badge.medium { background: rgba(253, 203, 110, 0.2); color: var(--warning); }
+        .severity-badge.low { background: rgba(0, 206, 201, 0.2); color: var(--success); }
+
+        .action-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        /* Dates */
+        .date-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .date-item:last-child { border-bottom: none; }
+
+        .date-value {
+            font-weight: 600;
+            color: var(--accent-light);
+            min-width: 120px;
+        }
+
+        .date-context {
+            color: var(--text-secondary);
+        }
+
+        /* Document History */
+        .history-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .history-header h2 {
+            font-size: 1.3rem;
+        }
+
+        .doc-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .doc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .doc-item:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .doc-name { font-weight: 500; }
+        .doc-info {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success { border-left: 3px solid var(--success); }
+        .toast.error { border-left: 3px solid var(--danger); }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .logo { font-size: 2rem; }
+            .entity-grid { grid-template-columns: 1fr; }
+            .result-header { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">📄 DocPipeline</h1>
+            <p class="subtitle">Upload documents and extract structured information using AI-powered analysis</p>
+        </header>
+
+        <!-- Upload Zone -->
+        <div class="upload-zone" id="uploadZone">
+            <span class="upload-icon">📤</span>
+            <div class="upload-text">
+                <h3>Drop a document here or click to browse</h3>
+                <p>Supports PDF, DOCX, and TXT files up to 10MB</p>
+                <div class="formats">
+                    <span class="format-badge">PDF</span>
+                    <span class="format-badge">DOCX</span>
+                    <span class="format-badge">TXT</span>
+                </div>
+            </div>
+            <input type="file" id="fileInput" accept=".pdf,.docx,.txt">
+        </div>
+
+        <!-- Processing State -->
+        <div class="processing" id="processing">
+            <div class="spinner"></div>
+            <div class="processing-steps">
+                <div class="step" id="step1">📂 Parsing document...</div>
+                <div class="step" id="step2">🔍 Extracting entities & key terms...</div>
+                <div class="step" id="step3">🤖 AI analysis & validation...</div>
+                <div class="step" id="step4">💾 Saving to database...</div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results" id="results">
+            <div class="result-header">
+                <h2>📊 Extraction Results</h2>
+                <div class="result-meta">
+                    <span class="meta-item" id="metaFilename"></span>
+                    <span class="meta-item" id="metaType"></span>
+                    <span class="meta-item" id="metaTime"></span>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="section-card">
+                <h3>📝 Summary</h3>
+                <p class="summary-text" id="summaryText"></p>
+            </div>
+
+            <!-- Key Terms -->
+            <div class="section-card">
+                <h3>🏷️ Key Terms</h3>
+                <div class="tag-list" id="keyTerms"></div>
+            </div>
+
+            <!-- Entities -->
+            <div class="section-card">
+                <h3>🔍 Extracted Entities</h3>
+                <div class="entity-grid" id="entities"></div>
+            </div>
+
+            <!-- Dates -->
+            <div class="section-card" id="datesSection" style="display:none;">
+                <h3>📅 Dates & Deadlines</h3>
+                <div id="dates"></div>
+            </div>
+
+            <!-- Action Items -->
+            <div class="section-card" id="actionsSection" style="display:none;">
+                <h3>✅ Action Items</h3>
+                <div id="actionItems"></div>
+            </div>
+
+            <button class="btn btn-primary" onclick="resetUI()">📤 Process Another Document</button>
+        </div>
+
+        <!-- Document History -->
+        <div class="history-section">
+            <div class="history-header">
+                <h2>📚 Processed Documents</h2>
+                <button class="btn" onclick="loadHistory()">↻ Refresh</button>
+            </div>
+            <div class="doc-list" id="docList">
+                <div class="empty-state">No documents processed yet. Upload one above!</div>
+            </div>
+        </div>
+
+        <footer>
+            <p>CalderR Internship Week 2 — Intelligent Document Processing Pipeline</p>
+            <p>Powered by Groq LLM · FastAPI · Pydantic v2 · PyMuPDF</p>
+        </footer>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ─── Upload Zone ───────────────────────────
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            if (e.dataTransfer.files.length > 0) {
+                processFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                processFile(fileInput.files[0]);
+            }
+        });
+
+        // ─── File Processing ───────────────────────
+        async function processFile(file) {
+            const validTypes = ['.pdf', '.docx', '.txt'];
+            const ext = '.' + file.name.split('.').pop().toLowerCase();
+            if (!validTypes.includes(ext)) {
+                showToast('Unsupported file type. Please use PDF, DOCX, or TXT.', 'error');
+                return;
+            }
+
+            // Show processing state
+            uploadZone.style.display = 'none';
+            const processing = document.getElementById('processing');
+            processing.classList.add('active');
+
+            // Animate steps
+            const steps = ['step1', 'step2', 'step3', 'step4'];
+            let currentStep = 0;
+            const stepInterval = setInterval(() => {
+                if (currentStep > 0) {
+                    document.getElementById(steps[currentStep - 1]).classList.remove('active');
+                    document.getElementById(steps[currentStep - 1]).classList.add('done');
+                    document.getElementById(steps[currentStep - 1]).textContent =
+                        '✅ ' + document.getElementById(steps[currentStep - 1]).textContent.slice(2);
+                }
+                if (currentStep < steps.length) {
+                    document.getElementById(steps[currentStep]).classList.add('active');
+                    currentStep++;
+                }
+            }, 800);
+
+            // Upload file
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                clearInterval(stepInterval);
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.detail || 'Upload failed');
+                }
+
+                const data = await response.json();
+                displayResults(data);
+                showToast('Document processed successfully!', 'success');
+                loadHistory();
+
+            } catch (error) {
+                clearInterval(stepInterval);
+                showToast('Error: ' + error.message, 'error');
+                resetUI();
+            }
+        }
+
+        // ─── Display Results ───────────────────────
+        function displayResults(data) {
+            document.getElementById('processing').classList.remove('active');
+            document.getElementById('results').classList.add('active');
+
+            const ext = data.extraction;
+
+            // Meta
+            document.getElementById('metaFilename').textContent = '📄 ' + data.filename;
+            document.getElementById('metaType').textContent = '📋 ' + (ext.document_type_guess || data.file_type).toUpperCase();
+            document.getElementById('metaTime').textContent = '⚡ ' + data.processing_time_ms.toFixed(0) + 'ms';
+
+            // Summary
+            document.getElementById('summaryText').textContent = ext.summary || 'No summary available.';
+
+            // Key Terms
+            const termsEl = document.getElementById('keyTerms');
+            termsEl.innerHTML = '';
+            (ext.key_terms || []).forEach(term => {
+                const tag = document.createElement('span');
+                tag.className = 'tag';
+                tag.textContent = term;
+                termsEl.appendChild(tag);
+            });
+
+            // Entities
+            const entitiesEl = document.getElementById('entities');
+            entitiesEl.innerHTML = '';
+            (ext.entities || []).forEach(entity => {
+                const item = document.createElement('div');
+                item.className = 'entity-item';
+                item.innerHTML = `
+                    <span class="entity-type ${entity.entity_type}">${entity.entity_type}</span>
+                    <span class="entity-text">${entity.text}</span>
+                `;
+                entitiesEl.appendChild(item);
+            });
+
+            // Dates
+            const dates = ext.dates || [];
+            const datesSection = document.getElementById('datesSection');
+            const datesEl = document.getElementById('dates');
+            if (dates.length > 0) {
+                datesSection.style.display = 'block';
+                datesEl.innerHTML = '';
+                dates.forEach(d => {
+                    const item = document.createElement('div');
+                    item.className = 'date-item';
+                    item.innerHTML = `
+                        <span class="date-value">${d.normalized || d.text}</span>
+                        <span class="date-context">${d.context || d.text}</span>
+                    `;
+                    datesEl.appendChild(item);
+                });
+            } else {
+                datesSection.style.display = 'none';
+            }
+
+            // Action Items
+            const actions = ext.action_items || [];
+            const actionsSection = document.getElementById('actionsSection');
+            const actionsEl = document.getElementById('actionItems');
+            if (actions.length > 0) {
+                actionsSection.style.display = 'block';
+                actionsEl.innerHTML = '';
+                actions.forEach(a => {
+                    const item = document.createElement('div');
+                    item.className = `action-item ${a.severity || 'medium'}`;
+                    item.innerHTML = `
+                        <span class="severity-badge ${a.severity || 'medium'}">${(a.severity || 'medium').toUpperCase()}</span>
+                        <div class="action-text">
+                            <div>${a.description}</div>
+                            ${a.assignee ? `<small style="color:var(--text-secondary)">Assignee: ${a.assignee}</small>` : ''}
+                            ${a.deadline ? `<small style="color:var(--text-secondary)"> · Due: ${a.deadline}</small>` : ''}
+                        </div>
+                    `;
+                    actionsEl.appendChild(item);
+                });
+            } else {
+                actionsSection.style.display = 'none';
+            }
+        }
+
+        // ─── Document History ──────────────────────
+        async function loadHistory() {
+            try {
+                const response = await fetch('/api/documents');
+                const data = await response.json();
+                const list = document.getElementById('docList');
+
+                if (!data.documents || data.documents.length === 0) {
+                    list.innerHTML = '<div class="empty-state">No documents processed yet.</div>';
+                    return;
+                }
+
+                list.innerHTML = '';
+                data.documents.forEach(doc => {
+                    const item = document.createElement('div');
+                    item.className = 'doc-item';
+                    item.onclick = () => viewDocument(doc.id);
+
+                    const sizeKB = ((doc.file_size_bytes || 0) / 1024).toFixed(1);
+                    const status = doc.status === 'completed' ? '✅' : '❌';
+
+                    item.innerHTML = `
+                        <span class="doc-name">${status} ${doc.filename || 'Unknown'}</span>
+                        <div class="doc-info">
+                            <span>${(doc.file_type || 'txt').toUpperCase()}</span>
+                            <span>${sizeKB} KB</span>
+                            <span>${doc.uploaded_at ? new Date(doc.uploaded_at).toLocaleDateString() : ''}</span>
+                        </div>
+                    `;
+                    list.appendChild(item);
+                });
+            } catch (e) {
+                console.error('Failed to load history:', e);
+            }
+        }
+
+        async function viewDocument(id) {
+            try {
+                const response = await fetch(`/api/documents/${id}`);
+                const doc = await response.json();
+
+                // Reconstruct the data format expected by displayResults
+                const data = {
+                    filename: doc.filename,
+                    file_type: doc.file_type,
+                    processing_time_ms: doc.processing_time_ms || 0,
+                    extraction: {
+                        summary: doc.summary || '',
+                        key_terms: doc.key_terms || [],
+                        entities: doc.entities || [],
+                        dates: doc.dates || [],
+                        action_items: doc.action_items || [],
+                        document_type_guess: doc.document_type_guess || 'general',
+                    },
+                };
+
+                uploadZone.style.display = 'none';
+                document.getElementById('processing').classList.remove('active');
+                displayResults(data);
+
+            } catch (e) {
+                showToast('Failed to load document: ' + e.message, 'error');
+            }
+        }
+
+        // ─── UI Helpers ────────────────────────────
+        function resetUI() {
+            uploadZone.style.display = 'block';
+            document.getElementById('processing').classList.remove('active');
+            document.getElementById('results').classList.remove('active');
+            fileInput.value = '';
+
+            // Reset processing steps
+            ['step1', 'step2', 'step3', 'step4'].forEach(id => {
+                const el = document.getElementById(id);
+                el.classList.remove('active', 'done');
+                el.textContent = el.textContent.replace('✅ ', '');
+            });
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        // Load history on page load
+        loadHistory();
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  doc-pipeline:
+    build: .
+    container_name: doc-pipeline
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./documents.db:/app/documents.db
+      - ./test_documents:/app/test_documents
+    restart: unless-stopped

@@ -1,0 +1,48 @@
+MEETING NOTES — Q3 Planning Session
+Date: July 3, 2026
+Location: Conference Room A, TechNova Inc., Austin, TX
+Attendees: Sarah Chen (VP Engineering), Marcus Johnson (Product Lead), 
+           Priya Patel (AI Team Lead), David Kim (DevOps Manager)
+
+AGENDA:
+1. Q2 Review
+2. Q3 Roadmap
+3. Budget Allocation
+4. Hiring Plan
+
+DISCUSSION:
+
+Sarah Chen opened the meeting by reviewing Q2 performance. Revenue hit 
+$4.2M, up 23% from Q1. The AI product suite drove most growth, with 
+customer acquisition costs dropping to $180 per customer.
+
+Marcus Johnson presented the Q3 roadmap. Priority features include:
+- Real-time data pipeline (target: August 15, 2026)
+- Customer dashboard redesign (target: July 28, 2026)
+- API v3 launch with breaking changes (target: September 1, 2026)
+
+Priya Patel raised concerns about the AI model's accuracy dropping from 
+94% to 87% on edge cases. She proposed allocating $50,000 for additional 
+training data and a dedicated ML engineer hire.
+
+David Kim reported that AWS costs increased by 18% due to the new 
+Kubernetes cluster. He recommended migrating batch jobs to spot instances, 
+projected to save $12,000/month.
+
+ACTION ITEMS:
+1. [HIGH] Sarah to finalize Q3 budget by July 7, 2026
+2. [HIGH] Marcus to create detailed feature specs by July 10, 2026
+3. [MEDIUM] Priya to prepare ML accuracy improvement proposal by July 14, 2026
+4. [MEDIUM] David to implement spot instance migration by July 21, 2026
+5. [LOW] All to review and comment on API v3 breaking changes document
+
+BUDGET:
+- Engineering: $800,000
+- AI/ML: $250,000
+- Infrastructure: $150,000
+- Hiring: 3 new engineers ($180,000 each)
+
+NEXT MEETING: July 10, 2026 at 2:00 PM
+
+Contact: Sarah Chen (sarah.chen@technova.io)
+Phone: +1 (512) 555-0142

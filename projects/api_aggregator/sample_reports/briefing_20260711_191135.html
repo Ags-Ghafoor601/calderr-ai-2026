@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Briefing — July 11, 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0f0f1a;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0b0;
+            --accent-blue: #4fc3f7;
+            --accent-green: #66bb6a;
+            --accent-red: #ef5350;
+            --accent-orange: #ffa726;
+            --accent-purple: #ab47bc;
+            --border-color: #2a2a4a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .data-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .data-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .data-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .news-card {
+            grid-column: 1 / -1;
+        }
+
+        .weather-grid {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .weather-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .temp {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-orange);
+        }
+
+        .condition {
+            color: var(--text-secondary);
+        }
+
+        .weather-details p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0.3rem 0;
+        }
+
+        .news-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .story-title {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin: 0.3rem 0;
+        }
+
+        .story-title:hover {
+            color: var(--accent-blue);
+        }
+
+        .story-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--bg-secondary);
+            color: var(--accent-blue);
+        }
+
+        .coin-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .coin-row:last-child { border-bottom: none; }
+
+        .coin-name { flex: 1; }
+        .coin-fullname { color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem; }
+        .coin-price { font-weight: bold; margin: 0 1rem; }
+        .coin-change.positive { color: var(--accent-green); }
+        .coin-change.negative { color: var(--accent-red); }
+
+        .market-sentiment {
+            text-align: center;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+
+        .briefing-section {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .briefing-section h2 {
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+        }
+
+        .source {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .error-card {
+            border-color: var(--accent-red);
+            text-align: center;
+            color: var(--accent-orange);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .data-grid { grid-template-columns: 1fr; }
+            .weather-grid { flex-direction: column; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☀️ Morning Briefing</h1>
+            <p class="subtitle">Saturday, July 11, 2026 · Generated by CalderR API Aggregator Agent</p>
+        </header>
+
+        <div class="data-grid">
+            
+        <div class="data-card weather-card">
+            <h3>🌤️ Weather in Strand</h3>
+            <div class="weather-grid">
+                <div class="weather-main">
+                    <span class="temp">85°F</span>
+                    <span class="condition">Sunny</span>
+                </div>
+                <div class="weather-details">
+                    <p>Feels like: 82°F</p>
+                    <p>Humidity: 35%</p>
+                    <p>Wind: 12 mph E</p>
+                    <p>UV Index: 7</p>
+                </div>
+            </div>
+        </div>
+        
+            
+        <div class="data-card finance-card">
+            <h3>💰 Crypto Market Overview</h3>
+            <div class="market-sentiment">
+                Market Sentiment: <strong>Neutral ➡️</strong>
+            </div>
+            <div class="coins-list">
+            <div class="coin-row">
+                <div class="coin-name">
+                    <strong>BTC</strong>
+                    <span class="coin-fullname">Bitcoin</span>
+                </div>
+                <div class="coin-price">$64,220.00</div>
+                <div class="coin-change positive">
+                    📈 +0.06%
+                </div>
+            </div>
+            
+            <div class="coin-row">
+                <div class="coin-name">
+                    <strong>ETH</strong>
+                    <span class="coin-fullname">Ethereum</span>
+                </div>
+                <div class="coin-price">$1,802.72</div>
+                <div class="coin-change positive">
+                    📈 +0.51%
+                </div>
+            </div>
+            
+            <div class="coin-row">
+                <div class="coin-name">
+                    <strong>SOL</strong>
+                    <span class="coin-fullname">Solana</span>
+                </div>
+                <div class="coin-price">$78.21</div>
+                <div class="coin-change negative">
+                    📉 -0.37%
+                </div>
+            </div>
+            
+            <div class="coin-row">
+                <div class="coin-name">
+                    <strong>DOGE</strong>
+                    <span class="coin-fullname">Dogecoin</span>
+                </div>
+                <div class="coin-price">$0.07</div>
+                <div class="coin-change positive">
+                    📈 +1.04%
+                </div>
+            </div>
+            
+            <div class="coin-row">
+                <div class="coin-name">
+                    <strong>ADA</strong>
+                    <span class="coin-fullname">Cardano</span>
+                </div>
+                <div class="coin-price">$0.17</div>
+                <div class="coin-change positive">
+                    📈 +0.24%
+                </div>
+            </div>
+            </div>
+            <p class="source">Source: CoinGecko</p>
+        </div>
+        
+            
+        <div class="data-card news-card">
+            <h3>📰 Top Tech Headlines</h3>
+            <div class="news-list">
+            <div class="news-item">
+                <span class="category-badge ai-machine-learning">AI & Machine Learning</span>
+                <a href="https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/" class="story-title">Apple sues OpenAI, accuses ex-employees of stealing trade secrets</a>
+                <div class="story-meta">
+                    <span>⬆ 1263</span>
+                    <span>💬 683</span>
+                    <span>by stock_toaster</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge general">General</span>
+                <a href="https://www.jeffgeerling.com/blog/2026/quadrf-can-spot-drones-and-see-wifi-through-my-wall/" class="story-title">QuadRF can spot drones and see WiFi through my wall</a>
+                <div class="story-meta">
+                    <span>⬆ 643</span>
+                    <span>💬 210</span>
+                    <span>by speckx</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge general">General</span>
+                <a href="https://www.brown.edu/news/2026-07-09/chemical-bonds-relativity" class="story-title">Einstein's relativity rules chemical bonds in heavy elements, new research shows</a>
+                <div class="story-meta">
+                    <span>⬆ 308</span>
+                    <span>💬 126</span>
+                    <span>by hhs</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge general">General</span>
+                <a href="https://lwn.net/SubscriberLink/1080822/990a8a5e2d379085/" class="story-title">An update on residential proxies and the scraper situation</a>
+                <div class="story-meta">
+                    <span>⬆ 247</span>
+                    <span>💬 248</span>
+                    <span>by chmaynard</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge general">General</span>
+                <a href="https://www.iroh.computer/blog/an-iroh-powered-smart-fan" class="story-title">An iroh powered smart fan</a>
+                <div class="story-meta">
+                    <span>⬆ 134</span>
+                    <span>💬 37</span>
+                    <span>by surprisetalk</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge general">General</span>
+                <a href="https://fazamhd.com/mental-models/networking/" class="story-title">Networking and the Internet, from First Principles</a>
+                <div class="story-meta">
+                    <span>⬆ 95</span>
+                    <span>💬 36</span>
+                    <span>by faza</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge programming">Programming</span>
+                <a href="https://tiki.li/blog/lucky_code.html" class="story-title">Your code is fast – if you're lucky</a>
+                <div class="story-meta">
+                    <span>⬆ 60</span>
+                    <span>💬 19</span>
+                    <span>by chrka</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <span class="category-badge programming">Programming</span>
+                <a href="https://alexandrepoupeau.com/otary/learn/" class="story-title">Otary – Image and Geometry Python Library Now Has Tutorials</a>
+                <div class="story-meta">
+                    <span>⬆ 52</span>
+                    <span>💬 1</span>
+                    <span>by poupeaua</span>
+                </div>
+            </div>
+            </div>
+            <p class="source">Source: Hacker News (news.ycombinator.com)</p>
+        </div>
+        
+        </div>
+
+        <div class="briefing-section">
+            <h2>🤖 AI-Synthesized Briefing</h2>
+            <div><strong>Morning Briefing 🌞<strong><br><br><strong>Weather Update 🌡️<strong><br>Strand, United Kingdom<br><strong>Temperature:<strong> 29°C (84°F) • <strong>Feels like:<strong> 28°C (82°F)<br>Clear blue skies and sunny conditions expected throughout the day. High of 31°C (88°F) and low of 18°C (65°F) expected.<br><br><strong>Top News Stories 📰<strong><br>1. <strong>Apple sues OpenAI<strong> over alleged trade secrets theft. [Read more](https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/)<br>2. <strong>FCC approves test of space mirror<strong> to light the night sky, despite public outcry. [Read more](https://www.nytimes.com/2026/07/10/climate/fcc-space-mirror.html)<br>3. <strong>New research shows Einstein's relativity rules<strong> chemical bonds in heavy elements. [Read more](https://www.brown.edu/news/2026-07-09/chemical-bonds-relativity)<br><br><strong>Market Update 📊<strong><br>The cryptocurrency market is experiencing a neutral sentiment with an average 24-hour change of 0.3%. The top performers are:<br><br>1. <strong>Bitcoin (BTC)<strong>: up 2.57% in the last 7 days to $64,220<br>2. <strong>Ethereum (ETH)<strong>: up 2.25% in the last 7 days to $1,802.72<br>3. <strong>Dogecoin (DOGE)<strong>: up 1.04% in the last 24 hours to $0.0749<br><br><strong>Outlook 🌞<strong><br>Expect a sunny day in Strand with a high of 31°C (88°F). Apple's lawsuit against OpenAI will be a major news story today, and the cryptocurrency market remains neutral.</div>
+        </div>
+
+        <footer>
+            <p>Generated at 07:11 PM · CalderR Internship Week 2 · API Aggregator Agent</p>
+            <p>Data sources: wttr.in · Hacker News · CoinGecko</p>
+        </footer>
+    </div>
+</body>
+</html>

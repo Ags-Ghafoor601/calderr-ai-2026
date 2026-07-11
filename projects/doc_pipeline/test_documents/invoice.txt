@@ -1,0 +1,41 @@
+INVOICE #INV-2026-0847
+Date: July 1, 2026
+Due Date: July 31, 2026
+
+FROM:
+Velocity Labs LLC
+1234 Innovation Drive, Suite 500
+San Francisco, CA 94105
+Tax ID: 87-4521098
+Contact: billing@velocitylabs.com
+Phone: (415) 555-0198
+
+TO:
+World Health Organization (WHO)
+Avenue Appia 20
+1211 Geneva, Switzerland
+Attn: Dr. James Morrison, IT Director
+
+SERVICES RENDERED:
+
+| Description                              | Hours | Rate    | Amount     |
+|------------------------------------------|-------|---------|------------|
+| Cloud Infrastructure Setup (AWS)          | 40    | $250/hr | $10,000.00 |
+| Kubernetes Cluster Configuration          | 24    | $250/hr | $6,000.00  |
+| CI/CD Pipeline (GitHub Actions)           | 16    | $250/hr | $4,000.00  |
+| Data Pipeline Development (Apache Kafka)  | 80    | $225/hr | $18,000.00 |
+| Security Audit & Compliance Review        | 20    | $300/hr | $6,000.00  |
+
+Subtotal:                                               $44,000.00
+Tax (8.625%):                                           $3,795.00
+TOTAL DUE:                                              $47,795.00
+
+PAYMENT TERMS:
+- Net 30 days
+- Wire transfer to: Chase Bank, Account #4521-8790-3312
+- Late payment fee: 1.5% per month
+
+NOTES:
+All work was performed between June 1-30, 2026 under contract 
+WHO-2026-IT-0042. Additional Terraform modules and monitoring 
+setup (Prometheus + Grafana) will be invoiced separately in August.
