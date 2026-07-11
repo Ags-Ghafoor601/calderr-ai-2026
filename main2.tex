@@ -1,0 +1,303 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in, headheight=15pt}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{listings}
+
+% --- Colors ---
+\definecolor{primary}{RGB}{12, 74, 110}     % Dark Slate Blue
+\definecolor{secondary}{RGB}{2, 132, 199}   % Sky Blue
+\definecolor{accent}{RGB}{240, 249, 255}    % Very Light Blue for backgrounds
+\definecolor{darkgray}{RGB}{71, 85, 105}
+\definecolor{codebg}{RGB}{248, 250, 252}
+
+% --- Hyperref Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primary,
+    filecolor=secondary,      
+    urlcolor=secondary,
+    pdftitle={Comprehensive Week 2 Report - CalderR Internship},
+    pdfpagemode=FullScreen,
+}
+
+% --- Header and Footer Setup ---
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textcolor{darkgray}{\textbf{Week 2 Comprehensive Report}}}
+\lhead{\textcolor{darkgray}{CalderR Agentic AI Internship, 2026}}
+\cfoot{\textcolor{darkgray}{Page \thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- Section Formatting ---
+\titleformat{\section}
+  {\LARGE\bfseries\color{primary}}{\thesection}{1em}{}[{\titlerule[1.2pt]}]
+
+\titleformat{\subsection}
+  {\Large\bfseries\color{secondary}}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\large\bfseries\color{primary}}{\thesubsubsection}{1em}{}
+
+% --- Document Starts Here ---
+\begin{document}
+
+% --- Title Page ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\Huge \textbf{\textcolor{primary}{Agentic AI Engineering Internship}}} \\[0.5cm]
+    {\Huge \textbf{\textcolor{primary}{2026}}} \\[1.5cm]
+    
+    {\LARGE \textbf{Week 2 Comprehensive Report}} \\[0.5cm]
+    {\Large \textit{Prompt Engineering \& Tool Calling}} \\[2cm]
+    
+    \begin{tcolorbox}[colback=accent, colframe=primary, rounded corners, boxrule=1.5pt, width=0.75\textwidth, arc=4mm]
+        \centering
+        \vspace{0.4cm}
+        {\Large \textbf{Prepared By:}} \\[0.2cm]
+        {\Large \textbf{Ghafoor}} \\[0.4cm]
+        {\large \textbf{Date:}} \\
+        {\large \today}
+        \vspace{0.4cm}
+    \end{tcolorbox}
+    
+    \vfill
+    
+    {\huge \textbf{\textcolor{secondary}{CalderR.}}} \\[0.2cm]
+    {\large \textit{RETHINKING $\cdot$ HOW $\cdot$ WORK $\cdot$ WORKS}}
+    \vspace*{1cm}
+\end{titlepage}
+
+% --- Table of Contents ---
+\tableofcontents
+\newpage
+
+% --- Section 1: Executive Summary ---
+\section{Executive Summary}
+This comprehensive report documents the technical implementations, theoretical learnings, and architectural decisions made during Week 2 of the CalderR Agentic AI Engineering Internship. Building upon the foundational reasoning mechanics established in Week 1, the primary objective of this week was to master advanced prompt engineering patterns and structured tool calling. 
+
+The week involved a rigorous progression of theoretical learning and hands-on applied practice. Three core labs were completed to implement structured data extraction using Pydantic, construct multi-tool research agents, and build robust error-recovery loops with exponential backoff. These concepts were synthesized into two sophisticated projects: a domain-specific \textbf{API Aggregator Agent} (Intermediate) and an \textbf{Intelligent Document Processing Pipeline} (Production). Both projects leverage advanced function calling capabilities, async data processing, and complex multi-pass reasoning architectures.
+
+% --- Section 2: Conceptual Learnings ---
+\section{Conceptual Mastery \& Assessment}
+The week emphasized the transition from passive text generation to reliable, structured action.
+
+\subsection{Advanced Prompting and Tool Calling}
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Reasoning Architectures:} Explored and implemented advanced patterns like Chain-of-Thought (CoT), Tree-of-Thought (ToT), self-consistency, and meta-prompting, which drastically enhance the LLM's capacity to solve complex logic puzzles and mathematics.
+    \item \textbf{Structured Outputs (Pydantic v2):} Transitioned from parsing messy text formats to deterministic output extraction. We leveraged Pydantic v2 to enforce strict schema validation, field aliases, and robust serialization of LLM outputs directly into predictable Python objects.
+    \item \textbf{Tool Routing and Fallbacks:} Mastered the tool-calling lifecycle. We implemented tool schemas complying with OpenAI formats, orchestrated parallel tool execution, and utilized LangChain's \texttt{ToolMessage} components. We specifically addressed error handling, building robust retry chains and graceful degradation logic.
+\end{itemize}
+
+\newpage
+
+% --- Section 3: Production Project ---
+\section{Production Project: Intelligent Document Processing Pipeline}
+
+\begin{tcolorbox}[colback=accent, colframe=primary, title=\textbf{Architectural Overview}, boxrule=1pt]
+The flagship deliverable for Week 2 is a production-grade Intelligent Document Processing Pipeline. It systematically processes various document formats (PDF, DOCX, TXT) to extract highly structured insights including entities, key terms, and action items, validating all outputs via Pydantic and serving them over a scalable FastAPI backend.
+\end{tcolorbox}
+
+\subsection{Technical Implementation}
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Async Processing \& Parsing:} The backend efficiently handles file uploads via FastAPI, passing them through Python-based document parsers (PyMuPDF, python-docx).
+    \item \textbf{Multi-Tool Extraction \& Validation:} Uses a multi-tool extraction agent powered by Groq to identify and summarize entities. Strict Pydantic models validate the LLM outputs before storing them persistently in a SQLite database.
+    \item \textbf{Dockerized Deployment:} The entire system (FastAPI backend and UI) is containerized via Docker and orchestrated through Docker Compose for immediate deployment.
+\end{itemize}
+
+\subsection{System Demonstrations}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Production-1.png}
+        \caption{Summary \& Key Terms}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Production-2.png}
+        \caption{Extracted Entities, Dates \& Deadlines}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
+% --- Section 4: Intermediate Project ---
+\section{Intermediate Project: API Aggregator Agent}
+
+\begin{tcolorbox}[colback=accent, colframe=primary, title=\textbf{Architectural Overview}, boxrule=1pt]
+A sophisticated API Aggregator Agent built to pull live data from 3 public APIs simultaneously. It demonstrates asynchronous parallel tool calling and produces a comprehensive, synthesized morning briefing report in formatted Markdown.
+\end{tcolorbox}
+
+\subsection{Technical Implementation}
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Parallel Tool Execution:} Implements concurrent HTTP tool calls via \texttt{httpx} to fetch weather, news, and stock data. 
+    \item \textbf{LLM Synthesis:} Passes the raw JSON API responses into the agent for aggregation, instructing it to synthesize the data into a coherent and stylized briefing.
+    \item \textbf{Robust Error Handling:} Ensures that the failure of one API (e.g., rate limits on a news API) does not crash the overall pipeline, effectively logging errors and proceeding with available data.
+\end{itemize}
+
+\subsection{System Demonstrations}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Intermediate-1.png}
+        \caption{Parallel Tool Calls Initialization}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Intermediate-2.png}
+        \caption{Data Fetching logs for external APIs}
+    \end{minipage}
+\end{figure}
+
+\vspace{0.3cm}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Intermediate-3.png}
+        \caption{LLM Synthesis and Aggregation}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Intermediate-4.png}
+        \caption{Final Output Formatting Generation}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{screenshots/Week2/Intermediate-5.png}
+        \caption{Final Synthesized Morning Briefing Report}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
+% --- Section 5: Foundational Labs ---
+\section{Foundational Labs Deep-Dive}
+
+\subsection{Lab 2.1: Structured Output Extractor}
+Focused on converting unstructured text into rigorous, typed schemas.
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Pydantic Validation:} Built complex \texttt{BaseModel} classes to represent job postings (Title, Company, Salary Range, Skills). 
+    \item \textbf{Output Parsers:} Leveraged LangChain's \texttt{with\_structured\_output()} to cleanly cast the LLM responses into instantiated Python objects, eliminating Regex-based string parsing.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.1-1.png}
+        \caption{Pydantic Schema Definition and Extraction}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.1-2.png}
+        \caption{Structured Output Validation Success}
+    \end{minipage}
+\end{figure}
+
+\vspace{0.5cm}
+
+\subsection{Lab 2.2: Multi-Tool Research Agent}
+Built an agent capable of dynamic tool routing and logic.
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Tool Repository:} Hand-coded 5 distinct tools including a mock web search, date retriever, calculator, text summarizer, and sentiment classifier.
+    \item \textbf{Routing Logic:} The LLM autonomously analyzes user prompts and routes the request to the correct sequence of tools to formulate a comprehensive answer.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.2-1.png}
+        \caption{Multi-Tool Agent Querying}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.2-2.png}
+        \caption{Tool Selection and Observation}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.2-3.png}
+        \caption{Routing to specialized tools}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.2-4.png}
+        \caption{Final Research Report Compilation}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
+\subsection{Lab 2.3: Error Recovery Agent}
+Focused on the critical concept of resilience in external API communication.
+\begin{itemize}[label=\textcolor{secondary}{$\bullet$}]
+    \item \textbf{Exponential Backoff:} Implemented logic to handle API rate limits dynamically (e.g., wait 2s, then 4s, then 8s) before failing.
+    \item \textbf{Graceful Fallbacks:} Designed the agent to utilize alternative tools if its primary data source experiences a severe outage, heavily logging all attempts and errors.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.3-1.png}
+        \caption{Initial API Call and Induced Failure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.3-2.png}
+        \caption{Exponential Backoff and Retry Triggered}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.3-3.png}
+        \caption{Fallback Strategy Engagement}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{screenshots/Week2/lab2.3-4.png}
+        \caption{Successful Recovery and Final Answer}
+    \end{minipage}
+\end{figure}
+
+\vspace{0.5cm}
+
+% --- Conclusion ---
+\section{Conclusion \& Next Steps}
+Week 2 marked a massive leap from passive chatbots to true, deterministic Agentic AI architectures. The transition to structured outputs via Pydantic fundamentally solved the unreliability of LLM text generation. Furthermore, integrating multiple real-world APIs with robust error-handling, backoffs, and concurrent execution proved that these agents are now ready to perform complex tasks reliably in production environments.
+
+Moving into Week 3, the focus will continue to scale, preparing us to construct dynamic graphs, stateful orchestrations, and full-fledged multi-agent collaborative systems capable of solving high-level engineering challenges autonomously.
+
+\end{document}

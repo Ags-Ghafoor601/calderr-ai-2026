@@ -66,6 +66,7 @@ from rich.table import Table
 from rich.text import Text
 from rich.rule import Rule
 from rich.prompt import Prompt
+from rich.markdown import Markdown
 from rich import box
 
 # ─────────────────────────────────────────────
@@ -79,7 +80,7 @@ if not GROQ_API_KEY:
     console.print("[bold red]✗ GROQ_API_KEY not found in .env[/]")
     sys.exit(1)
 
-MODEL_NAME = "llama-3.1-8b-instant"
+MODEL_NAME = "openai/gpt-oss-120b"
 
 
 # ═══════════════════════════════════════════════
@@ -132,8 +133,8 @@ def calculate(expression: str) -> str:
     Supports arithmetic (+, -, *, /, **, %), functions (sqrt, sin, cos, log),
     and constants (pi, e). Use this when the user asks to compute something."""
     try:
-        # Sanitize: only allow safe characters and function names
-        sanitized = expression.strip()
+        # Sanitize: replace caret with Python's exponent operator
+        sanitized = expression.strip().replace('^', '**')
         # Evaluate safely
         result = eval(sanitized, {"__builtins__": {}}, SAFE_MATH_NAMES)
         if isinstance(result, float):
@@ -357,7 +358,8 @@ ROUTING RULES:
 - If the user asks to convert units/measurements → use convert_units
 
 Always use tools when appropriate. Provide clear, helpful answers based on tool results.
-If no tool is needed, respond directly."""
+If no tool is needed, respond directly.
+CRITICAL INSTRUCTION: When you decide to use a tool, you MUST use the provided JSON tool-calling format natively. Do NOT output raw `<function>` tags or explain your thoughts before calling the tool. Just call it."""
 
 
 def build_agent():
@@ -390,45 +392,47 @@ def execute_tool_call(tool_call: dict) -> str:
 
 def run_agent_turn(agent, messages: list) -> tuple[str, list[dict]]:
     """
-    Run a single agent turn: invoke the model, process any tool calls,
-    and return the final response along with a log of tool calls made.
+    Run an agent turn iteratively: invoke the model, process tool calls,
+    and loop until a final text response is generated (max 5 iterations).
     """
     tool_log = []
+    MAX_ITERATIONS = 5
 
-    # First LLM call
-    response = agent.invoke(messages)
+    for _ in range(MAX_ITERATIONS):
+        response = agent.invoke(messages)
+        messages.append(response)
 
-    # If no tool calls, return the text response directly
-    if not response.tool_calls:
-        return response.content, tool_log
+        # If no tool calls, the agent has provided its final answer!
+        if not response.tool_calls:
+            content = response.content if response.content.strip() else "I'm sorry, I couldn't find an answer to that."
+            return content, tool_log
 
-    # Process tool calls (may be multiple in parallel)
-    messages.append(response)
+        # Process tool calls (may be multiple in parallel)
+        for tc in response.tool_calls:
+            tool_name = tc["name"]
+            tool_args = tc["args"]
 
-    for tc in response.tool_calls:
-        tool_name = tc["name"]
-        tool_args = tc["args"]
+            console.print(f"  [bold yellow]🔧 Calling tool:[/] {tool_name}")
+            console.print(f"  [dim]   Args: {json.dumps(tool_args, indent=2)}[/]")
 
-        console.print(f"  [bold yellow]🔧 Calling tool:[/] {tool_name}")
-        console.print(f"  [dim]   Args: {json.dumps(tool_args, indent=2)}[/]")
+            result = execute_tool_call(tc)
+            tool_log.append({
+                "tool": tool_name,
+                "args": tool_args,
+                "result": result[:200] + "..." if len(result) > 200 else result,
+            })
 
-        result = execute_tool_call(tc)
-        tool_log.append({
-            "tool": tool_name,
-            "args": tool_args,
-            "result": result[:200] + "..." if len(result) > 200 else result,
-        })
+            console.print(f"  [green]   ✓ Result received ({len(result)} chars)[/]")
 
-        console.print(f"  [green]   ✓ Result received ({len(result)} chars)[/]")
+            # Add tool result as ToolMessage
+            messages.append(ToolMessage(content=result, tool_call_id=tc["id"]))
 
-        # Add tool result as ToolMessage
-        messages.append(ToolMessage(content=result, tool_call_id=tc["id"]))
-
-    # Second LLM call to synthesize tool results into final answer
-    final_response = agent.invoke(messages)
-    messages.append(final_response)
-
-    return final_response.content, tool_log
+    console.print("  [bold red]⚠️ Max tool calls reached. Falling back to internal knowledge...[/]")
+    messages.append(SystemMessage(content="You have reached the maximum number of tool searches. Please provide a final answer to the user's query using your own internal knowledge. Do not call any more tools."))
+    
+    fallback_response = agent.invoke(messages)
+    content = fallback_response.content if fallback_response.content.strip() else "I'm sorry, I couldn't generate an answer."
+    return content, tool_log
 
 
 # ═══════════════════════════════════════════════
@@ -531,7 +535,7 @@ def run_demo_mode(agent):
                     )
 
             console.print(Panel(
-                response,
+                Markdown(response),
                 title="🤖 Agent Response",
                 border_style="green",
                 box=box.ROUNDED,
@@ -591,7 +595,7 @@ def run_interactive_mode(agent):
             response, tool_log = run_agent_turn(agent, messages)
 
             console.print(Panel(
-                response,
+                Markdown(response),
                 title="🤖 Agent",
                 border_style="green",
                 box=box.ROUNDED,
