@@ -1,0 +1,26 @@
+{
+  "acme_legal": {
+    "tenant_id": "acme_legal",
+    "num_questions": 5,
+    "faithfulness": 0.8798,
+    "answer_relevancy": 0.9542,
+    "context_precision": 0.9239,
+    "overall_score": 0.9193
+  },
+  "medcare_clinic": {
+    "tenant_id": "medcare_clinic",
+    "num_questions": 5,
+    "faithfulness": 0.6994,
+    "answer_relevancy": 0.8361,
+    "context_precision": 0.75,
+    "overall_score": 0.7618
+  },
+  "techcorp": {
+    "tenant_id": "techcorp",
+    "num_questions": 5,
+    "faithfulness": 0.6162,
+    "answer_relevancy": 0.95,
+    "context_precision": 0.75,
+    "overall_score": 0.7721
+  }
+}

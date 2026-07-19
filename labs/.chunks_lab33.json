@@ -1,0 +1,1090 @@
+[
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \n  \n  \n  \n \nAgentic AI Engineering Internship 2026 \n  \n \n \nPRE-PROGRAMME PREPARATION GUIDE \nFriday 19 June  ·  Sunday 21 June  ·  2026 \n  \n  \n  \n  \n​\n \n \n1",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 1,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \nIntroduction \nThis document outlines everything you must complete before the CalderR Agentic \nAI Engineering Internship begins on Monday, 22 June 2026.  Two preparation days \nhave been allocated, Friday 19 June and Saturday 20 June, for environment setup, \nfoundational learning, and tool configuration. \n  \nArriving on Day 1 with a fully working environment means the cohort can focus on",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 2,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "building from the very first session.  Please treat these two days as your first \nprofessional obligation within the program. \n  \nObjectives \n· Configure a complete local development environment \n· Install and verify all required software, tools, and libraries \n· Obtain and secure API credentials for all required services \n· Execute a successful end-to-end LLM call from your local machine \n· Establish your GitHub presence and understand version control expectations",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 2,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "· Complete the prerequisite self-assessment before June 22. \n  \nProgram At a Glance \nDetail \nInformation \nProgram Start \nMonday, 22 June 2026 \nPrep Period \nFriday 19 June – Sundayday 22 June 2026 \nCommitment During Prep \nSelf-paced, complete all tasks before Sunday midnight \nWeekly Commitment (from \nWeek 1) \n4 hours/day · 5 days/week · 20 hours/week \nTotal Program Duration \n10 weeks (200 hours) \nPrimary Language \nPython 3.11+ \nPrimary LLM Provider \nGroq (free tier) \n  \n2",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 2,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \nDay 1: Friday, 19 June 2026 \nDay 1 is dedicated entirely to your local development environment, Python setup, \nversion control, and containerization.  By the end of this day you should have a \nworking Python environment, your GitHub account configured with SSH access, and \nDockers Desktop running. \n  \n1.  System & Python Environment \nEstablish a clean, reproducible Python environment using pyenv for version",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 3,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "management and virtualenv for project isolation. \n  \nCategory \nTask \nResource / Reference \nPython 3.11+ \nInstall pyenv (recommended) and use it to \ninstall Python 3.11.9 \ngithub.com/pyenv/pyenv \nVerify Python \nConfirm python --version returns 3.11.x or \nhigher \nTerminal: python --version \npip Upgrade \nUpgrade pip to the latest version inside \nyour new environment \npip install --upgrade pip \nVirtual \nEnvironment \nCreate \na \nproject \nvirtual \nenvironment \nnamed calderr-env \npython -m venv \nActivate & Verify",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 3,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "python -m venv \nActivate & Verify \nActivate the environment and confirm \nwhich python points to it \nsource \ncalderr-env/bin/activate \nVS Code \nInstall VS Code and add the Python, \nPylance, and Jupyter extensions \ncode.visualstudio.com \nVS \nCode \nInterpreter \nSet VS Code to use your calderr-env \ninterpreter via Command Palette \nCtrl+Shift+P \n→ \nPython: \nSelect Interpreter \n  \n \n3",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 3,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \nPython Packages to Install \nWith your virtual environment active, install the following core packages.  These will \nbe used throughout the 10-week programme. \n  \nPackage \nPurpose \nlangchain >=0.3 \nCore AI orchestration framework \nlangchain-groq >=0.1 \nGroq LLM integration for LangChain \nlangchain-community >=0.3 \nCommunity integrations and loaders \nlanggraph >=0.2 \nAgent workflow and state graph orchestration \ngroq >=0.11 \nOfficial Groq Python SDK",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 4,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "groq >=0.11 \nOfficial Groq Python SDK \nopenai >=1.50 \nOpenAI SDK (used for compatible APIs) \npydantic >=2.0 \nData validation and structured output models \npython-dotenv >=1.0 \nEnvironment variable management from .env files \nfastapi >=0.115 \nAsync REST API framework \nuvicorn >=0.30 \nASGI server for running FastAPI \nchromadb >=0.5 \nLocal vector database for RAG systems \nsentence-transformers >=3.0 \nLocal embedding models (no API cost) \nhttpx >=0.27 \nAsync HTTP client for external API calls \nrich >=13.0",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 4,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "rich >=13.0 \nBeautiful terminal output and formatting \ntyper >=0.12 \nCLI application framework \npytest >=8.0 \nTesting framework \njupyter >=1.0 \nNotebook environment for experimentation \nstreamlit >=1.35 \nRapid UI framework for AI demos \n  \nTip  Save all of the above into a requirements.txt file in your project root.  Run pip \ninstall -r requirements.txt to install everything in one step. \n  \n4",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 4,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \n2.  Git & GitHub \nProfessional version control is expected from Day 1.  Every project submission, lab, \nand capstone will be hosted on GitHub. \n  \nCategory \nTask \nResource / Reference \nInstall Git \nInstall Git and confirm the version via \nterminal \ngit-scm.com · git --version \nGlobal Config \nSet your global name and email (must \nmatch your GitHub account) \ngit config --global user.name / \nuser.email \nGitHub Account",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 5,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "user.email \nGitHub Account \nCreate or log in to your GitHub account \nat github.com \ngithub.com/signup \nSSH Key \nGenerate an Ed25519 SSH key and add \nthe public key to GitHub Settings \nssh-keygen \n-t \ned25519 \n-C \nyour@email.com \nSSH Test \nConfirm SSH authentication is working \ncorrectly \nssh -T git@github.com \nStarter Repo \nCreate a new public GitHub repository \nnamed calderr-ai-2026 \ngithub.com → New Repository \nClone Locally \nClone your new repository to your local \nmachine \ngit \nclone",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 5,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "machine \ngit \nclone \ngit@github.com:yourname/cald\nerr-ai-2026.git \nFirst Commit \nAdd a README.md with your name and \na brief bio, then push to main \ngit add . · git commit · git push \n.gitignore \nAdd a Python .gitignore template to \nprevent committing secrets or venv \ngitignore.io → Python template \n  \nSecurity Rule  Never commit API keys, tokens, or passwords to Git.  All secrets are \nstored in a .env file which must be listed in your .gitignore. \n  \n3.  Docker",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 5,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "3.  Docker \nAll production projects in this programme are containerised.  Docker must be \ninstalled and verified before Week 1. \n  \n5",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 5,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \nCategory \nTask \nResource / Reference \nInstall \nDocker \nDesktop \nDownload and install Docker Desktop for \nyour operating system \ndocker.com/get-started \nStart \nDocker \nDaemon \nLaunch Docker Desktop and ensure the \ndaemon is running (icon in taskbar) \nDocker Desktop UI \nVerify Installation \nRun the hello-world container to confirm \nDocker is working \ndocker run hello-world \nTest \nPython \nContainer \nRun \nan \nofficial \nPython \n3.11 \ncontainer",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 6,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Run \nan \nofficial \nPython \n3.11 \ncontainer \ninteractively \ndocker \nrun \n-it \npython:3.11-slim bash \nBasic Dockerfile \nWrite a minimal Dockerfile for a Python \nscript and build it locally \nSee Dockerfile reference \nbelow \ndocker-compose \nConfirm docker compose (v2) is available \ndocker compose version \n  \nMinimal Dockerfile Reference \nCreate a file named Dockerfile (no extension) with the following content to verify \nyour build process works:",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 6,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "your build process works: \n  \nFROM python:3.11-slim WORKDIR /app COPY requirements.txt . RUN pip install --no-cache-dir -r \nrequirements.txt COPY . . CMD [\"python\", \"main.py\"] \n  \n​\n \n \n6",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 6,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \nDay 2: Saturday, 20 June 2026 \nDay 2 focuses on API access, LLM fundamentals, your first working AI call, and \nJupyter Lab.  By the end of this day you should have made a successful LLM call, \nunderstand core LLM concepts, and be ready to build from Day 1 of the program. \n4.  API Access & Credentials \nAll API keys are stored in a .env file at the root of your project.  Never share or commit",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 7,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "these keys.  The .env file must be listed in your .gitignore. \n  \nCategory \nTask \nResource / Reference \nGroq API Key \nSign up at console.groq.com · Navigate to \nAPI Keys · Create a new key · Copy it \nconsole.groq.com \nHuggingFace \nToken \nSign up at huggingface.co · Go to Settings \n→ Access Tokens · Create a read token \nhuggingface.co/settings/tok\nens \nCreate .env File \nCreate a .env file in your project root with \nboth keys \nGROQ_API_KEY=gsk_... \n· \nHF_TOKEN=hf_... \nLoad & Verify Keys",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 7,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "· \nHF_TOKEN=hf_... \nLoad & Verify Keys \nUse python-dotenv to load and print the \nfirst 4 characters of each key \nfrom \ndotenv \nimport \nload_dotenv; load_dotenv() \nOllama (Optional) \nInstall Ollama for fully local LLM inference \n— no API key required \nollama.ai \n· \nollama \npull \nllama3.2 \n  \n  \nNote  Groq's free tier provides approximately 14,400 requests per day with models \nincluding llama-3.3-70b, llama-3.1-8b, and mixtral-8x7b.  This is sufficient for the entire \nprogram. \n  \n \n7",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 7,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \n5.  LLM Fundamentals — Required Reading & Viewing \nBefore writing a single line of AI code, you must understand what you are building \non.  Complete all resources below before moving to Block 6. \n  \nResource \nWhat to Take Away \nAndrej Karpathy: Intro to Large Language \nModels (YouTube, 1 hr) \nHow LLMs work: training, inference, tokens, \ncontext windows, emergent abilities \nAnthropic \nPrompt Engineering Guide \n(docs.anthropic.com)",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 8,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Prompt Engineering Guide \n(docs.anthropic.com) \nSystem prompts, user/assistant roles, zero-shot vs \nfew-shot, chain-of-thought \nLangChain \nLCEL \nQuickstart \n(python.langchain.com) \nThe pipe operator |, Runnables, prompt → model → \nparser pattern \nGroq \nAPI \nReference \n(console.groq.com/docs) \nAvailable \nmodels, \nparameters \n(temperature, \nmax_tokens, top_p), rate limits \nWhat is an AI Agent? LangChain Blog \nThe perceive → plan → act → observe loop; tools; \nmemory; planning",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 8,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "memory; planning \n  \nKey Concepts to Understand Before June 22: \n· Token: the unit of text a model reads and generates \n· Context window: the maximum number of tokens a model can process at once \n· Temperature: controls randomness; 0 = deterministic, 1+ = creative \n· System prompt: the instruction that defines the model's behaviour and persona \n· Completion vs Chat: the two API styles; this program uses the Chat format \nexclusively",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 8,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "exclusively \n· LangChain chain: a composable sequence of steps using the pipe ( | ) operator \n· Agent loop: the cycle an AI agent uses: receive input → reason → act with tools → \nobserve → repeat \n  \n \n8",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 8,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \n6.  Your First LLM Call \nFollow the steps below to make your first successful call to a Groq-hosted LLM.  This \nis the foundational test that confirms your environment is fully working. \n  \nCategory \nTask \nResource / Reference \nInstall LangChain + \nGroq \nWith your virtual environment active, install \nlangchain and langchain-groq \npip \ninstall \nlangchain \nlangchain-groq \npython-dotenv \nCreate \ntest_groq.py \nCreate a new Python file at the root of your",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 9,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Create a new Python file at the root of your \nproject called test_groq.py \ntouch test_groq.py \nWrite the Call \nImplement the code shown in the reference \nbelow — load your key, build a chain, invoke \nit \nSee code reference below \nRun & Verify \nExecute the script; you should receive a \ncoherent response from the model \npython test_groq.py \nExperiment \nChange the model to llama-3.1-8b-instant \nand compare response speed and quality \nmodel= parameter \nStreaming Test \nModify the call to stream the output",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 9,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Modify the call to stream the output \ntoken-by-token using .stream() \nchain.stream(input) \n  \ntest_groq.py Reference Implementation \nimport os ​\nfrom dotenv import load_dotenv ​\nfrom langchain_groq import ChatGroq ​\nfrom langchain_core.prompts import ChatPromptTemplate ​\nfrom langchain_core.output_parsers ​\nimport StrOutputParser  ​\n​\nload_dotenv()  ​\nllm = ChatGroq(model=\"llama-3.3-70b-versatile\",  temperature=0.7,     \napi_key=os.getenv(\"GROQ_API_KEY\") )  ​",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 9,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "api_key=os.getenv(\"GROQ_API_KEY\") )  ​\nprompt = ChatPromptTemplate.from_messages([(\"system\", \"You are a helpful AI \nengineering assistant.\"),     (\"user\", \"{question}\") ])  ​\n​\nchain = prompt | llm | StrOutputParser()  ​\nresponse = chain.invoke({\"question\": \"What is an AI agent and why does it matter?\"}) ​\nprint(response) \n  \n  \n9",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 9,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \n7.  Jupyter Lab \nJupyter Lab is the primary experimentation environment used for labs, RAG \nnotebooks, and evaluation work throughout the programme. \n  \nCategory \nTask \nResource \n/ \nReference \nInstall Jupyter \nEnsure jupyter is installed in your virtual \nenvironment \npip \ninstall \njupyter \njupyterlab \nLaunch \nJupyter \nLab \nStart Jupyter Lab from your project root \njupyter lab \nCreate Notebook \nCreate a new Python 3 notebook named",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 10,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Create a new Python 3 notebook named \n01_first_llm_call.ipynb \nFile → New → Notebook \nReproduce Call \nReproduce your test_groq.py call inside the \nnotebook using separate cells \nRun \neach \ncell \nwith \nShift+Enter \nMarkdown Cells \nAdd markdown cells to document what each \ncode cell does \nChange \ncell \ntype \nto \nMarkdown \nSave & Export \nSave the notebook and export it as HTML for \nportfolio documentation \nFile → Save · File → Export \n​\n \n \n \n10",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 10,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n ​\nDoc # 1 \nSelf-Assessment \nAnalyze: \n  \n· Python: functions, classes, async/await, type hints \n· Git: branching, committing, pull requests \n· REST APIs: HTTP methods, JSON, status codes \n· Docker: images, containers, Compose \n· Large Language Models: how they work conceptually \n· Prompt engineering: system prompts, few-shot, CoT \n· LangChain basics: chains, prompts, output parsers \n· System design: breaking problems into components",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 11,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "· Testing & debugging: pytest, error handling \n· Technical writing & documentation \n: \n  \n  \n \n11",
+    "metadata": {
+      "source": "CalderR_week-0.pdf",
+      "page": 11,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Agentic AI Engineering Internship , 2026 \n  \n \nWEEK 1 \nAI Fundamentals & Agentic AI Foundations \n  \nMonday 22 June – Friday 26 June 2026 \nFrom zero to agent , understanding the modern AI landscape \n  \n  \n  \n  \n  \n  \n​",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 1,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nWeek Overview \nWeek 1 establishes the conceptual and practical foundation for the entire internship. \nInterns move from understanding how large language models work to building their \nfirst working agentic system using LangChain and Groq. \n  \nDetail \nInformation \nWeek Dates \nMonday 22 June – Friday 26 June 2026 \nTheme \nAI Fundamentals & Agentic AI Foundations \nPrimary Stack \nPython · LangChain · Groq API · ChromaDB (in-memory)",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 2,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Total Commitment \n20 hours (4 hours/day · 5 days) \nDeliverable Due Friday \n1 Intermediate Project + 1 Production Project (choose one \nof each) \n  \nLearning Objectives \nUnderstand how large language models work at a conceptual and practical level \nDistinguish between AI, ML, deep learning, and LLMs \nExplain what makes an AI 'agentic' versus reactive \nBuild a simple conversational agent using LangChain and Groq \nUnderstand tokens, context windows, temperature, and sampling parameters",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 2,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Write effective system prompts for agent personas \n  \n \n2",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 2,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nTopics & Subtopics \nTopic \nSubtopics \nLLM Foundations \nTransformers architecture, tokenization, attention, training \nvs inference, RLHF, instruction tuning \nAgentic AI Concepts \nReactive vs proactive agents, planning, tool use, memory, \nthe ReAct pattern, agent loops \nLangChain Foundations \nLLMs, ChatModels, PromptTemplates, Chains, LCEL, \noutput parsers, runnables \nGroq API \nAvailable models (llama-3, mixtral, gemma), speed",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 3,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "benchmarks, pricing, rate limits \nPrompt Engineering \nIntro \nSystem prompts, few-shot prompting, chain-of-thought, \ninstruction clarity \nPython for AI \nAsync functions, type hints with Pydantic, error handling, \nlogging best practices \n​\n \n \n3",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 3,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nDaily Breakdown \nEach day is structured around a core learning block followed by applied, hands-on \npractice. Complete each day's practice before moving to the next , concepts \ncompound throughout the week. \n  \nDay \nFocus \nCore Learning \nApplied Practice \nMon \nLLM \nFoundations \nWatch Karpathy 'Intro to \nLLMs'. Read Attention Is All \nYou Need summary. Study \ntransformer architecture \ndiagrams. \nBuild first Groq API call in",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 4,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "diagrams. \nBuild first Groq API call in \nPython. Explore different \nmodels (llama-3-8b, \nmixtral-8x7b). Experiment \nwith temperature (0 vs 1 vs \n2). \nTue \nAgentic AI \nConcepts \nRead 'ReAct: Synergizing \nReasoning and Acting' paper \nsummary. Study the Agent \nLoop: Perceive → Plan → Act → \nObserve. \nBuild a simple ReAct-style \nloop manually in Python (no \nframework). Agent decides \nwhich of 3 tools to call \nbased on user input. \nWed \nLangChain Core \nLangChain LCEL tutorial. \nStudy: Runnable,",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 4,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "LangChain LCEL tutorial. \nStudy: Runnable, \nRunnablePassthrough, \nRunnableParallel. Build 3 \ndifferent chain patterns. \nBuild a document Q&A \nchain (load text file → split → \nembed → retrieve → answer). \nUse ChromaDB in-memory. \nThu \nPrompt \nEngineering \nStudy: system prompts, \nzero-shot vs few-shot, \nchain-of-thought. Read \nAnthropic Prompt \nEngineering guide. \nLab: Build a persona-based \nagent (customer support \nbot, code reviewer, data \nanalyst). Measure output \nquality differences. \nFri \nIntegration +",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 4,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "quality differences. \nFri \nIntegration + \nDemo \nIntegrate all concepts: \nmulti-turn chatbot with \nmemory, custom persona, \nGroq backend, rich terminal \nUI. \nWeekly standup prep. \nDemo your chatbot. Peer \ncode review. Start \nintermediate project. \n​\n \n \n4",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 4,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nRecommended Resources \nThese resources are drawn from official documentation and original research. \nComplete the highlighted readings before their corresponding daily session. \n  \nType \nResource \nWhy It Matters \nVideo \nAndrej Karpathy – Intro to Large \nLanguage Models (YouTube) \nBest conceptual intro to \nLLMs for engineers \nVideo \nAndrej Karpathy – Let's Build GPT From \nScratch (YouTube) \nDeep dive into transformer \ninternals \nPaper",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 5,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Deep dive into transformer \ninternals \nPaper \nAttention Is All You Need (Vaswani et al., \n2017) \nFoundational transformer \npaper \nPaper \nReAct: Synergizing Reasoning and Acting \nin LLMs \nFoundation of agentic AI \npatterns \nDocs \nLangChain Python Docs – Get Started \nOfficial LangChain reference \nDocs \nGroq Cloud Documentation \nAPI reference and model \ndetails \nBlog \nAnthropic – What Is Constitutional AI? \nUnderstanding safe agent \ndesign \nBlog \nLangChain Blog – LCEL Explained \nModern chain composition",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 5,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Modern chain composition \nRepo \nLangChain Cookbook (GitHub) \n100+ practical examples \nCourse \nDeepLearning.AI – LangChain for LLM \nApplication Development \nFree, Andrew Ng-produced \ncourse \n​\n \n \n5",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 5,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nHands-on Labs \nComplete all three labs over the course of the week. Each lab builds toward the skills \nrequired for your Friday project submission. \n  \nLab 1.1: Your First Groq Agent \nBuild a Python CLI chatbot that: uses Groq llama-3-8b, maintains conversation \nhistory, supports /clear and /exit commands, and shows token usage per response. \n  \nLab 1.2: Manual ReAct Loop",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 6,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Lab 1.2: Manual ReAct Loop \nWithout using any framework, implement a ReAct agent that can: search a mock \n'database' of facts, calculate math expressions using eval(), and decide which tool to \ncall based on the user's question. \n  \nLab 1.3: Prompt Engineering A/B Test \nWrite five different system prompts for the same task (summarising news articles). \nMeasure accuracy, conciseness, and tone. Document your findings in a brief report. \n​\n \n \n6",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 6,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nWeekly Assessment \nComplete this self-assessment before Friday's standup. These questions test \nconceptual clarity, not memorisation. \n  \nQuestion Type \nQuestion \nConceptual \nExplain the difference between a language model and an agent. \nWhat capabilities does an agent add? \nConceptual \nWhat is the 'context window' and why does it matter for agentic \nsystems? \nConceptual \nDescribe the ReAct pattern. When would you use it versus a simple",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 7,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "chain? \nTechnical \nWhat is LCEL in LangChain? Write a 5-line example of a chain using \nthe pipe operator. \nTechnical \nExplain the role of temperature in LLM sampling. When would you \nset it to 0? \nDesign \nDesign a simple agent architecture for a customer support \nchatbot. What tools would it need? \n  \n \n7",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 7,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nWeekly Standup Requirements \nEvery Friday standup follows the same structure. Prepare each item in advance. \n  \nItem \nDetail \nDemo \nLive demo of your chatbot (2 minutes). Show conversation \nhistory working. \nTechnical Question \nExplain one concept from the week that surprised you or \nchanged how you think. \nArchitecture Review \nDraw (on whiteboard or shared screen) the agent loop your \nchatbot follows. \nCode Review",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 8,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "chatbot follows. \nCode Review \nShare your most interesting code snippet from the week. \nWhat did you learn? \nBlockers \nName one technical challenge you faced. How did you solve it \n(or plan to)? \n​\n \n \n8",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 8,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nWeek 1 Projects \nChoose exactly one Intermediate project and one Production project to complete by \nFriday. Both are submitted via GitHub and demonstrated in the Friday standup. \n  \nCategory 1 Projects , Choose One \n  \nProject 1-I-A: Intelligent CLI Assistant \nIntelligent CLI Assistant \nDifficulty \nIntermediate \nDescription \nBuild a terminal-based AI assistant powered by Groq that can answer",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 9,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "questions about a chosen topic domain (cooking, history, \nprogramming). Supports conversation history, topic switching, and \nformatted output using the Rich library. \nArchitecture \nUser CLI → LangChain ChatModel (Groq) → Conversation Buffer Memory \n→ Rich Console Output. Single file Python application. \nSkills Learned \nLangChain chains, conversation memory, Groq API, Rich terminal UI, \nPython CLI design \nDeliverables \nGitHub repo with README, requirements.txt, demo GIF, and 3",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 9,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "example conversations documented \nEvaluation \nCriteria \nConversation history works across 10+ turns. Handles errors gracefully. \nREADME clearly documents setup. Code is clean and typed. \n  \nProject 1-I-B: Prompt Engineering Evaluator \nPrompt Engineering Evaluator \nDifficulty \nIntermediate \nDescription \nBuild a tool that takes a task description, generates 3 different prompts \nautomatically using an LLM, runs all 3 against test cases, and scores \nthem on accuracy, brevity, and helpfulness. \n9",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 9,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nArchitecture \nTask Input → Prompt Generator Agent (Groq) → 3 parallel LLM calls → \nEvaluator Agent → Comparison Report (JSON + console) \nSkills Learned \nParallel LLM calls, structured output with Pydantic, evaluation design, \nLangChain LCEL \nDeliverables \nWorking CLI tool, 5 evaluated prompt pairs, findings report in README \nEvaluation \nCriteria \nEvaluation is automated, consistent, and explainable. Results show",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 10,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "meaningful differences between prompts. \n  \nProject 1-I-C: Domain Expert Agent \nDomain Expert Agent \nDifficulty \nIntermediate  \nDescription \nBuild a specialized agent with a detailed persona (e.g., Python code \nreviewer, marketing copywriter, financial advisor). The agent uses \nstructured prompts, refuses out-of-domain requests, and maintains \nconsistent personality. \nArchitecture \nSystem Prompt Layer → Input Classifier → Domain Guard → Expert \nResponder → Output Formatter \nSkills Learned",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 10,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Responder → Output Formatter \nSkills Learned \nPrompt engineering, output parsing, domain classification, agent \nguardrails \nDeliverables \nWorking agent with domain guard, 10 test conversations, documented \nedge cases \nEvaluation \nCriteria \nAgent maintains persona consistency. Domain guard works correctly. \nResponse quality is high. \n​\n \n \n10",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 10,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nCategory 2 Projects , Choose One \n  \nProject 1-P-A: AI-Powered Customer Support Platform \nAI-Powered Customer Support Platform \nDifficulty \nHigh \nDescription \nBuild a production-ready customer support chatbot as a FastAPI REST \nAPI with endpoints for starting sessions, sending messages, and \nretrieving history. Includes rate limiting, input validation, logging, and a \nsimple React frontend or Streamlit UI. \nArchitecture",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 11,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Architecture \nReact/Streamlit UI → FastAPI Backend → LangChain ConversationChain \n(Groq) → SQLite Session Storage → Logging Middleware → Pydantic \nRequest/Response Models \nSkills Learned \nFastAPI, REST API design, session management, SQLite, Pydantic v2, \nCORS, logging, error handling \nDeliverables \nGitHub repo with Docker support, API documentation (auto-generated \nby FastAPI), Postman collection, README with architecture diagram, \nand live demo \nEvaluation \nCriteria",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 11,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "and live demo \nEvaluation \nCriteria \nAPI follows REST best practices. Docker compose works on first run. \nError cases handled. 90%+ test coverage on core logic. \n  \nProject 1-P-B: Multi-Model Comparison Engine \nMulti-Model Comparison Engine \nDifficulty \nHigh \nDescription \nBuild a benchmarking tool that evaluates multiple Groq models \n(llama-3-8b, llama-3-70b, mixtral-8x7b, gemma-7b) on a standardized \ntask suite. Generates statistical comparison reports with latency, \nquality, and cost metrics.",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 11,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "quality, and cost metrics. \nArchitecture \nTask Suite YAML → Parallel Model Runner (asyncio) → Response \nCollector → Statistical Analyzer → Report Generator (HTML + JSON) → \nGitHub Pages Deploy \nSkills Learned \nAsync Python, statistical analysis, data visualization (matplotlib/plotly), \nYAML config, HTML report generation \n11",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 11,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nDeliverables \nPublished benchmark report, automated test runner, GitHub Actions \nCI pipeline, documented methodology \nEvaluation \nCriteria \nBenchmarks are reproducible. Statistical analysis is valid. Report is \nreadable by non-engineers. CI pipeline runs on push. \n  \nProject 1-P-C: Agentic Research Assistant \nAgentic Research Assistant \nDifficulty \nHigh \nDescription \nBuild a research assistant agent that can take a question, plan a",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 12,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "research strategy, make sequential LLM calls to explore subtopics, \nsynthesize findings, and produce a structured report with citations and \nconfidence scores. \nArchitecture \nQuestion Input → Planner Agent → Sequential Research Loop (3–5 Groq \ncalls) → Synthesis Agent → Report Formatter → Streamlit UI with \nprogress display \nSkills Learned \nMulti-step agent loops, planning patterns, output structuring with \nPydantic, Streamlit UI, progress indicators \nDeliverables",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 12,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Deliverables \nStreamlit app deployed to Streamlit Cloud (free), GitHub repo, sample \nresearch reports on 3 different topics, architecture diagram \nEvaluation \nCriteria \nAgent produces coherent multi-section reports. Planning is visible to \nuser. Confidence scores are meaningful. Deploys successfully. \n​\n \n \n12",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 12,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 1 \n \nWeek 1 Completion Checklist \nConfirm every item below before Friday's standup. \n  \n  \nChecklist Item \n☐ \nAll 5 daily learning sessions completed (Mon–Fri) \n☐ \nLab 1.1 , Groq CLI chatbot built and working \n☐ \nLab 1.2 , Manual ReAct loop implemented without a framework \n☐ \nLab 1.3 , Prompt A/B test completed with documented findings \n☐ \nWeekly Assessment questions answered in writing \n☐",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 13,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "☐ \nOne Intermediate project chosen, built, and pushed to GitHub \n☐ \nOne Production project chosen, built, and pushed to GitHub \n☐ \nBoth projects have complete README files with setup instructions \n☐ \nArchitecture diagram prepared for Friday's standup review \n☐ \nDemo rehearsed and ready to present in under 2 minutes \n  \n \n \n \n13",
+    "metadata": {
+      "source": "CalderR_week-1.pdf",
+      "page": 13,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \n  \n  \n  \n \nAgentic AI Engineering Internship , 2026 \n  \nWEEK 2 \nPrompt Engineering & Tool Calling \n  \nMonday 29 June – Friday 3 July 2026 \nMastering the language of AI: structured prompts and callable tools \n  \n  \n  \n  \n  \n  \n \n​\n \n \n1",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 1,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nWeek Overview \nWeek 2 builds on the foundations of Week 1 by introducing advanced prompt \nengineering patterns and structured tool calling , the two pillars that allow an LLM to \nmove from passive conversation to reliable, controllable action. \n  \nDetail \nInformation \nWeek Dates \nMonday 29 June – Friday 3 July 2026 \nTheme \nPrompt Engineering & Tool Calling \nPrimary Stack \nPython · LangChain · Groq API · Pydantic v2 · httpx",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 2,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Total Commitment \n20 hours (4 hours/day · 5 days) \nDeliverable Due Friday \n1 Intermediate Project + 1 Production Project (choose one \nof each) \n  \nLearning Objectives \nMaster advanced prompt engineering patterns (CoT, ToT, few-shot, meta-prompting) \nImplement function/tool calling with structured outputs using Pydantic \nBuild agents that call external APIs, databases, and code execution engines \nHandle tool call errors, retries, and fallbacks gracefully",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 2,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Design tool schemas following OpenAI/Anthropic best practices \nBuild a multi-tool agent pipeline end-to-end \n  \n \n2",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 2,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nTopics & Subtopics \nTopic \nSubtopics \nAdvanced Prompt \nEngineering \nChain-of-thought (CoT), Tree-of-thought (ToT), \nself-consistency, meta-prompting, prompt chaining, \nnegative prompting \nStructured Outputs \nPydantic v2 models, JSON mode, function calling \nspecification, output parsers, validation \nTool/Function Calling \nTool schemas (OpenAI format), ToolMessage, tool selection \nlogic, parallel tool calls, tool chaining",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 3,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "logic, parallel tool calls, tool chaining \nExternal Tool Integration \nHTTP tools (httpx), code execution, file operations, \ndatabase queries, web search integration \nError Handling \nRetry logic, fallback chains, graceful degradation, error \ntypes in LLM APIs \nLangChain Tools \nTool decorator, BaseTool class, StructuredTool, tool binding \nto ChatModels \n​\n \n \n3",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 3,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nDaily Breakdown \nEach day is structured around a core learning block followed by applied, hands-on \npractice. Complete each day's practice before moving to the next , concepts \ncompound throughout the week. \n  \nDay \nFocus \nCore Learning \nApplied Practice \nMon \nAdvanced \nPrompting \nStudy CoT, ToT, \nself-consistency papers. \nRead Anthropic Prompt \nEngineering Guide in full. \nPractice 10 prompt rewrites. \nLab: Build a CoT prompting",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 4,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Lab: Build a CoT prompting \npipeline. Compare answers \nwith/without CoT on 10 math \nand logic problems. \nDocument improvements. \nTue \nStructured \nOutputs \nStudy Pydantic v2: \nvalidators, model_config, \nfield aliases. Build 5 complex \nPydantic models for AI \noutput schemas. \nImplement structured output \nextraction using LangChain \nwith_structured_output(). \nParse messy LLM outputs into \nclean Python objects. \nWed \nTool Calling \nBasics \nRead OpenAI function \ncalling docs and Groq tool",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 4,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Read OpenAI function \ncalling docs and Groq tool \ncalling reference. Build first \ntool-calling agent: weather \nlookup + calculator. \nBuild a 5-tool agent: \nsearch_db, calculate, \nformat_date, \nconvert_currency, \nsummarize_text. Test each \ntool independently then \ntogether. \nThu \nExternal APIs as \nTools \nIntegrate real external APIs \nas tools: public REST APIs \n(weather, news, currency). \nHandle API errors inside tool \nimplementations. \nBuild: News research agent \nthat searches news, extracts",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 4,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "that searches news, extracts \nentities, classifies topics, and \nsummarizes findings using \nmultiple API tools. \nFri \nIntegration + \nDemo \nBuild a production-grade \ntool-calling agent with error \nhandling, logging, retries, \nand structured output. Add \nStreamlit UI. \nWeekly standup. Demo the \nmulti-tool agent. Code review. \nArchitecture discussion: when \nto use tools vs chains? \n​\n \n4",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 4,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nRecommended Resources \nThese resources are drawn from official documentation and original research. \nComplete the highlighted readings before their corresponding daily session. \n  \nType \nResource \nWhy It Matters \nPaper \nChain-of-Thought Prompting Elicits \nReasoning in LLMs (Wei et al., 2022) \nFoundation of CoT \ntechniques \nPaper \nTree of Thoughts: Deliberate Problem \nSolving with LLMs \nAdvanced reasoning pattern \nDocs",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 5,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Advanced reasoning pattern \nDocs \nAnthropic Prompt Engineering Guide \nBest practices from Claude's \ncreators \nDocs \nOpenAI Function Calling Guide \nStandard tool calling \nspecification \nDocs \nLangChain Tools Documentation \nHow to build and bind tools \nDocs \nPydantic v2 Documentation \nStructured output validation \nBlog \nGroq Tool Calling Cookbook \nGroq-specific tool calling \npatterns \nVideo \nDeepLearning.AI – Building with LLM \nAPIs (short course) \nPractical function calling \ntutorial \nRepo",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 5,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Practical function calling \ntutorial \nRepo \nLangChain Tool Examples (GitHub) \nReal tool implementations \nBlog \nPrompt Engineering Guide \n(promptingguide.ai) \nComprehensive prompting \nreference \n​\n \n \n5",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 5,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nHands-on Labs \nComplete all three labs over the course of the week. Each lab builds toward the skills \nrequired for your Friday project submission. \n  \nLab 2.1: Structured Output Extractor \nBuild a tool that takes unstructured job postings and extracts: title, company, salary \nrange, required skills, location, and remote status , all as a validated Pydantic model. \n  \nLab 2.2: Multi-Tool Research Agent",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 6,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Lab 2.2: Multi-Tool Research Agent \nBuild an agent with 5+ tools: web_search_mock, calculate, get_current_date, \nsummarize, classify_sentiment. The agent must correctly route queries to the right \ntool. \n  \nLab 2.3: Error Recovery Agent \nBuild an agent that handles tool failures: if a tool fails, it tries an alternative. Log all \nattempts and outcomes. Implement exponential backoff for rate limit errors. \n​\n \n \n6",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 6,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nWeekly Assessment \nComplete this self-assessment before Friday's standup. These questions test \nconceptual clarity, not memorisation. \n  \nQuestion Type \nQuestion \nConceptual \nWhat is the difference between Chain-of-Thought and \nTree-of-Thought prompting? When would you use each? \nConceptual \nWhy does structured output matter for production AI systems? \nWhat problems does it solve? \nConceptual",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 7,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "What problems does it solve? \nConceptual \nExplain the tool-calling lifecycle: how does a model decide to call a \ntool, and what happens after? \nTechnical \nWrite a Pydantic model for extracting a job posting's title, salary \nrange, and required skills. \nTechnical \nWhat is exponential backoff and why is it used when calling \nexternal APIs? \nDesign \nDesign a tool schema for a 'send_email' function. What parameters, \ntypes, and descriptions would you include? \n  \n \n7",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 7,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nWeekly Standup Requirements \nEvery Friday standup follows the same structure. Prepare each item in advance. \n  \nItem \nDetail \nDemo \nLive demo of your multi-tool agent (2 minutes). Show at least \n3 distinct tools being called correctly. \nTechnical Question \nExplain one tool-calling or structured-output concept from \nthe week that surprised you. \nArchitecture Review \nDraw your agent's tool-routing logic: how does it decide",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 8,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "which tool to call? \nCode Review \nShare your most interesting Pydantic model or error-handling \npattern from the week. \nBlockers \nName one tool integration or structured output challenge you \nfaced. How did you solve it (or plan to)? \n​\n \n \n8",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 8,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nWeek 2 Projects \nChoose exactly one Intermediate project and one Production project to complete by \nFriday. Both are submitted via GitHub and demonstrated in the Friday standup. \n  \nIntermediate Projects , Choose One \n  \nProject 2-I-A: Smart Form Filler \nSmart Form Filler \nDifficulty \nIntermediate \nDescription \nBuild an AI agent that reads a natural language description and fills",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 9,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "out a structured JSON form. Handles ambiguous input by asking \nclarifying questions. Validates output against a Pydantic schema. \nArchitecture \nNL Input → Intent Classifier → Clarification Agent (if needed) → Form \nFiller → Pydantic Validator → JSON Output \nSkills Learned \nStructured output, Pydantic validation, clarification loops, form design \nDeliverables \nCLI tool, 10 test cases with expected outputs, validation report \nEvaluation \nCriteria \n90%+ accuracy on test cases. Handles ambiguous inputs. Clear",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 9,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "clarification questions. \n  \nProject 2-I-B: Code Review Agent \nCode Review Agent \nDifficulty \nIntermediate \nDescription \nBuild an agent that reviews Python code and produces structured \nfeedback: bugs found, security issues, style violations, performance \nsuggestions. Output is a structured report with severity levels. \nArchitecture \nCode Input → Multi-pass Reviewer (bugs, security, style, performance) → \nStructured Report → Markdown Output \n9",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 9,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nSkills Learned \nMulti-pass prompting, structured outputs, code analysis, prompt \ntemplates \nDeliverables \nWorking agent, 5 example reviews on real Python code, comparison \nwith pylint output \nEvaluation \nCriteria \nIdentifies real bugs. Output is consistently structured. Severity ratings \nare reasonable. \n  \nProject 2-I-C: API Aggregator Agent \nAPI Aggregator Agent \nDifficulty \nIntermediate \nDescription",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 10,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Difficulty \nIntermediate \nDescription \nBuild an agent that pulls data from 3 different public APIs (e.g., \nweather, news, stock prices) and synthesizes a morning briefing report. \nUses tool calling to fetch each data source. \nArchitecture \nScheduler → 3 Tool Calls (parallel) → Data Aggregator → LLM Synthesizer \n→ Formatted Report (HTML/Markdown) \nSkills Learned \nParallel tool calls, async Python, API integration, report generation \nDeliverables",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 10,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Deliverables \nWorking agent, sample reports, README with setup instructions \nEvaluation \nCriteria \nReports are coherent and well-formatted. Tools are modular and \nreusable. Error handling is robust. \n​\n \n \n10",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 10,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nProduction Projects , Choose One \n  \nProject 2-P-A: Intelligent Document Processing Pipeline \nIntelligent Document Processing Pipeline \nDifficulty \nHigh \nDescription \nBuild a pipeline that processes uploaded documents (PDF, DOCX, TXT) \nand extracts structured information: entities, dates, key terms, \nsummaries, action items , all as validated Pydantic models exposed via \nFastAPI. \nArchitecture",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 11,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "FastAPI. \nArchitecture \nFile Upload (FastAPI) → Document Parser (PyMuPDF/python-docx) → \nMulti-Tool Extraction Agent → Pydantic Validation → Database (SQLite) → \nREST API → Simple Frontend \nSkills Learned \nFastAPI, file processing, structured extraction, async pipelines, \ndatabase integration \nDeliverables \nDocker-deployed FastAPI app, API documentation, demo processing 5 \nreal documents, GitHub repo with CI \nEvaluation \nCriteria \nHandles all 3 file formats. Extraction accuracy demonstrated on test",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 11,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "set. Docker compose works. API is documented. \n  \nProject 2-P-B: AI Function-as-a-Service Platform \nAI Function-as-a-Service Platform \nDifficulty \nHigh \nDescription \nBuild a platform where users can define custom AI tools via YAML \nconfig files and call them via a REST API. Tools are dynamically loaded, \nvalidated, and executed against the Groq backend. \nArchitecture \nYAML Tool Registry → Dynamic Tool Loader → Tool Validation (Pydantic) \n→ FastAPI Router → Groq Agent Executor → Response Formatter → API",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 11,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "Client \nSkills Learned \nDynamic configuration, plugin architecture, FastAPI advanced \npatterns, YAML parsing, tool registry pattern \n11",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 11,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nDeliverables \nPlatform with 10 pre-built tools, YAML spec documentation, API \nplayground UI, GitHub Actions deployment \nEvaluation \nCriteria \nNew tools can be added via YAML without code changes. 10 working \ntools demonstrated. Architecture is extensible. \n  \nProject 2-P-C: Automated Data Analysis Agent \nAutomated Data Analysis Agent \nDifficulty \nHigh \nDescription \nBuild an agent that accepts a CSV file and a natural language",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 12,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "question, writes and executes Python pandas code to answer it, and \nproduces a report with visualizations, data table, and narrative \nexplanation. \nArchitecture \nCSV Upload → Schema Analyzer → Question Parser → Code Generator \n(Groq) → Code Executor (sandboxed subprocess) → Visualization \nGenerator → Report Builder → Streamlit UI \nSkills Learned \nCode generation, safe code execution, pandas, matplotlib, Streamlit, \nresult interpretation \nDeliverables",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 12,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "result interpretation \nDeliverables \nStreamlit app on Streamlit Cloud, 5 example datasets with questions \nand answers, security analysis of code execution approach \nEvaluation \nCriteria \nCorrectly answers 80%+ of data questions. Visualizations are \nappropriate. Code execution is sandboxed. Deployed and accessible. \n​\n \n \n12",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 12,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR Internship Program   ​\n​\n​\n​\n​\n​\n​\n​\n             Week # 2 \n \nWeek 2 Completion Checklist \nConfirm every item below before Friday's standup. \n  \n  \nChecklist Item \n☐ \nAll 5 daily learning sessions completed (Mon–Fri) \n☐ \nLab 2.1 , Structured output extractor built and validated against Pydantic \nschema \n☐ \nLab 2.2 , Multi-tool research agent built with 5+ working tools \n☐ \nLab 2.3 , Error recovery agent implemented with exponential backoff \n☐ \nWeekly Assessment questions answered in writing \n☐",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 13,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "☐ \nOne Intermediate project chosen, built, and pushed to GitHub \n☐ \nOne Production project chosen, built, and pushed to GitHub \n☐ \nBoth projects have complete README files with setup instructions \n☐ \nTool-routing architecture diagram prepared for Friday's standup review \n☐ \nDemo rehearsed and ready to present in under 2 minutes \n  \n  \n  \n \n \n13",
+    "metadata": {
+      "source": "CalderR_week-2.pdf",
+      "page": 13,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Agentic AI Engineering Internship — 2026 \n \nWEEK 3 \nEmbeddings, RAG & Vector Databases \n \nMonday 6 July – Friday 10 July 2026 \nBuilding systems that know things — retrieval-augmented generation at scale",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 1,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nWeek Overview \nWeek 3 introduces the technology that lets AI systems work with knowledge they were never trained on. Interns learn how \nembeddings represent meaning, how vector databases store and retrieve it efficiently, and how to build complete \nretrieval-augmented generation (RAG) pipelines that are measurably evaluated rather than assumed to work. \n \nDetail \nInformation \nWeek Dates",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 2,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Detail \nInformation \nWeek Dates \nMonday 6 July – Friday 10 July 2026 \nTheme \nEmbeddings, RAG & Vector Databases \nPrimary Stack \nPython · LangChain · ChromaDB · FAISS · sentence-transformers · RAGAS \nTotal Commitment \n20 hours (4 hours/day · 5 days) \nDeliverable Due Friday \n1 Intermediate Project + 1 Production Project (choose one of each) \n \nLearning Objectives \n•​\nUnderstand embeddings: what they represent and how they are computed \n•​\nBuild complete RAG pipelines from ingestion to generation \n•​",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 2,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "•​\nWork with ChromaDB, FAISS, and Qdrant vector databases \n•​\nImplement advanced retrieval: hybrid search, re-ranking, metadata filtering \n•​\nEvaluate RAG systems using the RAGAS framework \n•​\nBuild a production RAG application with multiple document sources \n \nTopics & Subtopics \nTopic \nSubtopics \nEmbeddings \nSemantic similarity, cosine distance, embedding models (sentence-transformers, \ntext-embedding-3), dimensionality, batching \nDocument Processing",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 2,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "Document Processing \nText splitting strategies, chunk size tuning, overlap, metadata extraction, \ndocument loaders \nVector Databases \nChromaDB (local), FAISS (in-process), Qdrant (server), index types (HNSW), \npersistence, namespaces \nRAG Architecture \nNaive RAG, advanced RAG, modular RAG, ingestion pipeline vs query pipeline \nAdvanced Retrieval \nHybrid search (BM25 + semantic), re-ranking (cross-encoder), HyDE, multi-query, \nparent-document retrieval \n1",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 2,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nTopic \nSubtopics \nRAG Evaluation \nRAGAS metrics: faithfulness, answer relevancy, context precision, context recall. \nTruLens basics. \n \n2",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 3,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nDaily Breakdown \nEach day is structured around a core learning block followed by applied, hands-on practice. Complete each day's practice \nbefore moving to the next — concepts compound throughout the week. \n \nDay \nFocus \nCore Learning \nApplied Practice \nMon \nEmbeddings Deep \nDive \nStudy embedding theory: vector spaces, \ncosine similarity, semantic meaning. \nInstall sentence-transformers. Visualize",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 4,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Install sentence-transformers. Visualize \nembeddings with 2D PCA. \nLab: embed 100 Wikipedia sentences. \nBuild a semantic search CLI. Compare \nresults of different embedding models \n(all-MiniLM-L6-v2 vs bge-small-en). \nTue \nVector DBs \nChromaDB tutorial: create collection, \nadd docs, query. FAISS intro: IndexFlatL2 \nvs IndexIVFFlat. Study tradeoffs: \nin-memory vs persistent vs server. \nBuild: Document ingestion pipeline for \n50 PDF pages. Store in ChromaDB with \nmetadata (source, page, date). Query",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 4,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "metadata (source, page, date). Query \nwith filters. \nWed \nRAG Pipeline \nStudy RAG paper. Build naive RAG with \nLangChain: load → split → embed → \nstore → retrieve → generate. Tune \nchunk size (256/512/1024 tokens). \nEvaluate your RAG: create 20 Q&A pairs \nfrom documents. Measure retrieval \naccuracy. Experiment with k=3 vs k=10 \nretrieved chunks. \nThu \nAdvanced Retrieval \nStudy hybrid search: BM25 (keyword) + \nsemantic. Implement with LangChain \nEnsembleRetriever. Add cross-encoder",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 4,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "EnsembleRetriever. Add cross-encoder \nreranking (BAAI/bge-reranker-base). \nBuild: Multi-query retrieval. Generate 3 \nquery variations per user question. \nDeduplicate and re-rank. Measure \nimprovement over naive RAG. \nFri \nRAG Evaluation \nInstall RAGAS. Build evaluation dataset. \nRun faithfulness, answer relevancy, \ncontext precision metrics on your RAG \nsystem. \nStandup: demo RAG system with live \nqueries. Present RAGAS scores. \nArchitecture review: draw your full RAG \npipeline. Start production project.",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 4,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "pipeline. Start production project. \n \n3",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 4,
+      "chunk_index": 4
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nRecommended Resources \nThese resources are drawn from official documentation and original research. Complete the highlighted readings before \ntheir corresponding daily session. \n \nType \nResource \nWhy It Matters \nPaper \nRetrieval-Augmented Generation for Knowledge-Intensive \nNLP (Lewis et al., 2020) \nOriginal RAG paper \nPaper \nAdvanced RAG: Survey of Techniques (2024) \nModern RAG taxonomy \nDocs",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 5,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Modern RAG taxonomy \nDocs \nLangChain RAG Tutorial (v0.3) \nOfficial RAG implementation guide \nDocs \nChromaDB Documentation \nPrimary vector DB for the course \nDocs \nRAGAS Documentation \nRAG evaluation framework \nDocs \nSentence-Transformers Docs (HuggingFace) \nLocal embeddings reference \nVideo \nLlamaIndex RAG From Scratch Series (YouTube) \nDeep dive into RAG patterns \nBlog \nPinecone — What Is a Vector Database? (2024) \nVector DB concepts explained \nBlog \nLangChain Blog — Advanced RAG Techniques",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 5,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Blog \nLangChain Blog — Advanced RAG Techniques \nProduction RAG patterns \nRepo \nRAGAS GitHub Repository \nEvaluation framework with examples \nBlog \nJerry Liu (LlamaIndex) — 12 RAG Pain Points and Solutions \nCommon RAG problems and fixes \n \n4",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 5,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nHands-on Labs \nComplete all three labs over the course of the week. Each lab builds toward the skills required for your Friday project \nsubmission. \n \nLab 3.1 — Semantic Search CLI \nEmbed 100 Wikipedia sentences using sentence-transformers. Build a CLI tool that takes a query, embeds it, and returns the \nmost semantically similar sentences. Compare results between all-MiniLM-L6-v2 and bge-small-en.",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 6,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Lab 3.2 — Naive RAG Pipeline \nBuild a complete RAG pipeline over 50 pages of PDF content: load, split, embed, store in ChromaDB with metadata, retrieve, \nand generate. Tune chunk size across 256, 512, and 1024 tokens and document the impact on answer quality. \n \nLab 3.3 — Hybrid Retrieval & RAGAS Evaluation \nImplement hybrid search combining BM25 keyword search with semantic retrieval using LangChain's EnsembleRetriever,",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 6,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "then add cross-encoder re-ranking. Evaluate the resulting pipeline with RAGAS, reporting faithfulness, answer relevancy, and \ncontext precision scores. \n \n5",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 6,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nWeekly Assessment \nComplete this self-assessment before Friday's standup. These questions test conceptual clarity, not memorisation. \n \nQuestion Type \nQuestion \nConceptual \nWhat does an embedding represent? Why does cosine similarity work as a measure of \nsemantic closeness? \nConceptual \nExplain the tradeoffs between chunk size, retrieval accuracy, and context window usage in \nRAG. \nConceptual",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 7,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "RAG. \nConceptual \nWhat is the difference between naive RAG and hybrid search? Why might hybrid outperform \npure semantic search? \nTechnical \nName three RAGAS metrics and explain what each one measures about a RAG system. \nTechnical \nWhat does a cross-encoder re-ranker do, and why is it applied after initial retrieval rather than \ninstead of it? \nDesign \nDesign a RAG architecture for a multi-tenant SaaS product where each customer's documents \nmust remain isolated. \n \n \n \n \n \n \n \n \n \n6",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 7,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nWeekly Standup Requirements \nEvery Friday standup follows the same structure. Prepare each item in advance. \n \nItem \nDetail \nDemo \nLive demo of your RAG system (2 minutes). Run at least 3 real queries against your \nindexed documents. \nTechnical Question \nExplain one retrieval or evaluation concept from the week that changed how you think \nabout RAG. \nArchitecture Review",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 8,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "about RAG. \nArchitecture Review \nDraw your full RAG pipeline: ingestion path and query path, end to end. \nCode Review \nShare your RAGAS evaluation results. What scored well? What scored poorly, and \nwhy? \nBlockers \nName one retrieval quality or chunking challenge you faced. How did you solve it (or \nplan to)? \n \n7",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 8,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nWeek 3 Projects \nChoose exactly one Intermediate project and one Production project to complete by Friday. Both are submitted via GitHub \nand demonstrated in the Friday standup. \n \nCategory 1 Projects — Choose One \n \nProject 3-I-A: Personal Knowledge Base \nPersonal Knowledge Base \nDifficulty \nIntermediate \nDescription \nBuild a personal Q&A system from your own documents (notes, articles, PDFs). Supports",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 9,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "multi-document ingestion, filtering by source, and streaming responses. \nArchitecture \nDocument Loader (multi-format) → Text Splitter → Sentence-Transformers Embedder → \nChromaDB → LangChain RetrievalQA → CLI \nSkills Learned \nMulti-format document loading, embedding pipelines, ChromaDB, retrieval chains \nDeliverables \nCLI tool ingesting 20+ documents, 15 Q&A examples, README with architecture \nEvaluation Criteria \nRetrieves relevant context. Answers grounded in documents. Source citations shown.",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 9,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "Project 3-I-B: Product Manual Assistant \nProduct Manual Assistant \nDifficulty \nIntermediate \nDescription \nBuild a RAG chatbot over a product manual (choose any open-source manual: Linux man pages, \nPython docs, Django docs). Answers technical questions with page references. \nArchitecture \nPDF/HTML Loader → Recursive Splitter → Local Embeddings → FAISS → Retrieval Chain → \nStreamlit UI \nSkills Learned \nDocument chunking strategies, FAISS, Streamlit, source attribution \nDeliverables",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 9,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "Deliverables \nStreamlit app, 20 test questions with answers and source references, accuracy report \nEvaluation Criteria \n80%+ answer accuracy. Sources always cited. UI is clean and usable. \n \nProject 3-I-C: Hybrid Search Engine \nHybrid Search Engine \nDifficulty \nIntermediate \n8",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 9,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nDescription \nBuild a hybrid search system combining BM25 (keyword) and semantic search over a news corpus. \nCompare search quality with and without re-ranking. \nArchitecture \nNews Dataset → BM25 Index (rank_bm25) + Vector Index (ChromaDB) → EnsembleRetriever → \nCross-Encoder Re-ranker → Results Display \nSkills Learned \nBM25 implementation, ensemble retrieval, cross-encoder reranking, search evaluation",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 10,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Deliverables \nCLI search tool, comparison study (BM25 vs semantic vs hybrid), evaluation on 30 queries \nEvaluation Criteria \nHybrid outperforms either method alone. Re-ranking improves top-1 accuracy. Study is rigorous. \n \n9",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 10,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nCategory 2 Projects — Choose One \n \nProject 3-P-A: Enterprise Document Intelligence Platform \nEnterprise Document Intelligence Platform \nDifficulty \nProduction \nDescription \nBuild a multi-tenant document intelligence API. Users upload documents, which are processed and \nindexed. Query endpoint returns answers with confidence scores, source chunks, and page \nnumbers. Includes admin dashboard. \nArchitecture",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 11,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "numbers. Includes admin dashboard. \nArchitecture \nFastAPI + Background Worker (asyncio) → Document Processing Pipeline → ChromaDB \n(namespaced per tenant) → Advanced RAG (hybrid + rerank) → REST API → Streamlit Admin \nDashboard → Docker Compose \nSkills Learned \nMulti-tenancy, async processing, REST API design, background tasks, ChromaDB namespacing, \nadmin UI \nDeliverables \nDocker-deployed platform, API docs, demo with 3 tenant datasets, RAGAS evaluation report, \nGitHub repo \nEvaluation Criteria",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 11,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "GitHub repo \nEvaluation Criteria \nMulti-tenancy works correctly. RAGAS scores > 0.7 on test set. Docker compose works. API is fully \ndocumented. \n \nProject 3-P-B: Real-Time Research Engine \nReal-Time Research Engine \nDifficulty \nProduction \nDescription \nBuild a research engine that combines RAG over a local knowledge base with live web search \nresults. Dynamically decides whether to search web or use local knowledge. Produces cited reports. \nArchitecture",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 11,
+      "chunk_index": 2
+    }
+  },
+  {
+    "text": "Architecture \nQuery → Knowledge Router (local vs web) → Dual Retrieval (ChromaDB + Web Search Tool) → \nContext Merger → Re-ranker → Report Generator → FastAPI → Streamlit \nSkills Learned \nKnowledge routing, web search integration, context merging, dynamic retrieval strategy, citation \nmanagement \nDeliverables \nWorking research engine, 10 research reports on different topics, routing decision logs, deployed \napp \nEvaluation Criteria",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 11,
+      "chunk_index": 3
+    }
+  },
+  {
+    "text": "app \nEvaluation Criteria \nRouting decisions are correct 90%+ of time. Reports have proper citations. Hybrid approach \noutperforms single-source. \n \nProject 3-P-C: RAG Evaluation Benchmark \nRAG Evaluation Benchmark \nDifficulty \nProduction \n10",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 11,
+      "chunk_index": 4
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nDescription \nBuild a comprehensive RAG evaluation framework that tests multiple RAG configurations (chunk \nsizes, embedding models, retrieval strategies) and produces statistical comparison reports. Useful \nas a standalone tool for future projects. \nArchitecture \nConfig YAML → Pipeline Builder → Parallel Evaluation Runner → RAGAS + Custom Metrics → \nStatistical Analyzer → HTML Report Generator → GitHub Pages",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 12,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "Skills Learned \nEvaluation framework design, statistical analysis, parallel execution, HTML report generation, CI/CD \nDeliverables \nPublished benchmark comparing 6+ RAG configurations, GitHub Actions CI, documentation, blog \npost about findings \nEvaluation Criteria \nFramework is reusable for new configurations. Statistical analysis is sound. Report is publishable \nquality. \n \n11",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 12,
+      "chunk_index": 1
+    }
+  },
+  {
+    "text": "CalderR  ·  Agentic AI Engineering Internship 2026  ·  Week 3: Embeddings, RAG & Vector Databases \nWeek 3 Completion Checklist \nConfirm every item below before Friday's standup. \n \n \nChecklist Item \n☐ \nAll 5 daily learning sessions completed (Mon–Fri) \n☐ \nLab 3.1 — Semantic search CLI built and tested across two embedding models \n☐ \nLab 3.2 — Naive RAG pipeline built with chunk size experiments documented \n☐ \nLab 3.3 — Hybrid retrieval implemented and evaluated using RAGAS metrics \n☐",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 13,
+      "chunk_index": 0
+    }
+  },
+  {
+    "text": "☐ \nWeekly Assessment questions answered in writing \n☐ \nOne Intermediate project chosen, built, and pushed to GitHub \n☐ \nOne Production project chosen, built, and pushed to GitHub \n☐ \nBoth projects have complete README files with setup instructions \n☐ \nFull RAG pipeline architecture diagram prepared for Friday's standup review \n☐ \nDemo rehearsed and ready to present in under 2 minutes \n \n \n \nCalderR Agentic AI Engineering Internship  ·  Week 3  ·  2026 Cohort \n12",
+    "metadata": {
+      "source": "CalderR_Week-3.pdf",
+      "page": 13,
+      "chunk_index": 1
+    }
+  }
+]

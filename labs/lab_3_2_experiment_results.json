@@ -1,0 +1,14 @@
+{
+  "256": {
+    "num_chunks": 261,
+    "avg_retrieval_score": 0.26355555555555554
+  },
+  "512": {
+    "num_chunks": 136,
+    "avg_retrieval_score": 0.3413333333333333
+  },
+  "1024": {
+    "num_chunks": 79,
+    "avg_retrieval_score": 0.38
+  }
+}

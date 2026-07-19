@@ -1,0 +1,26 @@
+{
+  "semantic": {
+    "faithfulness": 0.6817058368374157,
+    "answer_relevancy": 0.9441269841269841,
+    "context_precision": 0.8416666666666668,
+    "mode": "semantic",
+    "rerank": false,
+    "evaluation_method": "custom"
+  },
+  "hybrid": {
+    "faithfulness": 0.7530905207069527,
+    "answer_relevancy": 0.9707936507936509,
+    "context_precision": 0.9354166666666668,
+    "mode": "hybrid",
+    "rerank": false,
+    "evaluation_method": "custom"
+  },
+  "hybrid_rerank": {
+    "faithfulness": 0.0,
+    "answer_relevancy": 0.0,
+    "context_precision": 0.0,
+    "mode": "hybrid+rerank",
+    "rerank": true,
+    "evaluation_method": "custom"
+  }
+}
