@@ -1,0 +1,98 @@
+[
+  {
+    "company_name": "TechStart Inc.",
+    "contact_email": "alice@techstart.com",
+    "account_tier": "professional",
+    "account_id": "ACC-19950159",
+    "status": "completed",
+    "timestamp": "2026-07-23 14:37:28"
+  },
+  {
+    "company_name": "MegaCorp Global Solutions",
+    "contact_email": "r.chen@megacorp.com",
+    "account_tier": "enterprise",
+    "account_id": "ACC-378EE50D",
+    "status": "completed",
+    "timestamp": "2026-07-23 14:37:30"
+  },
+  {
+    "company_name": "GreenLeaf Analytics",
+    "contact_email": "sarah@greenleaf.io",
+    "account_tier": "professional",
+    "account_id": "ACC-AE1B9367",
+    "status": "completed",
+    "timestamp": "2026-07-23 14:37:31"
+  },
+  {
+    "company_name": "DataFlow Systems",
+    "contact_email": "j.park@dataflow.dev",
+    "account_tier": "enterprise",
+    "account_id": "ACC-F0DE49BB",
+    "status": "completed",
+    "timestamp": "2026-07-23 14:37:32"
+  },
+  {
+    "company_name": "",
+    "contact_email": "invalid-email",
+    "account_tier": "",
+    "account_id": "",
+    "status": "rejected",
+    "timestamp": "2026-07-23 14:37:32"
+  },
+  {
+    "company_name": "TechStart Inc.",
+    "contact_email": "alice@techstart.com",
+    "account_tier": "professional",
+    "account_id": "ACC-1C202033",
+    "status": "completed",
+    "timestamp": "2026-07-28 21:58:41"
+  },
+  {
+    "company_name": "MegaCorp Global Solutions",
+    "contact_email": "r.chen@megacorp.com",
+    "account_tier": "enterprise",
+    "account_id": "ACC-B7EB5589",
+    "status": "completed",
+    "timestamp": "2026-07-28 21:58:42"
+  },
+  {
+    "company_name": "GreenLeaf Analytics",
+    "contact_email": "sarah@greenleaf.io",
+    "account_tier": "professional",
+    "account_id": "ACC-28D01DBB",
+    "status": "completed",
+    "timestamp": "2026-07-28 21:58:43"
+  },
+  {
+    "company_name": "DataFlow Systems",
+    "contact_email": "j.park@dataflow.dev",
+    "account_tier": "enterprise",
+    "account_id": "ACC-8DBC1141",
+    "status": "completed",
+    "timestamp": "2026-07-28 21:58:45"
+  },
+  {
+    "company_name": "",
+    "contact_email": "invalid-email",
+    "account_tier": "",
+    "account_id": "",
+    "status": "rejected",
+    "timestamp": "2026-07-28 21:58:45"
+  },
+  {
+    "company_name": "Acme Corp",
+    "contact_email": "john@acme.com",
+    "account_tier": "enterprise",
+    "account_id": "",
+    "status": "awaiting_approval",
+    "timestamp": "2026-07-28 21:59:29"
+  },
+  {
+    "company_name": "Acme Corp",
+    "contact_email": "john@acme.com",
+    "account_tier": "enterprise",
+    "account_id": "",
+    "status": "rejected",
+    "timestamp": "2026-07-28 22:00:00"
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "post_id": "demo-1-c10d",
+    "content_preview": "I just finished building my first LangGraph workflow! It processes documents through a pipeline with",
+    "classification": "safe",
+    "confidence": 1.0,
+    "final_decision": "approved",
+    "decision_source": "auto",
+    "timestamp": "2026-07-23 14:36:58"
+  },
+  {
+    "post_id": "demo-2-ece9",
+    "content_preview": "This controversial political opinion piece argues that current AI regulation is fundamentally biased",
+    "classification": "borderline",
+    "confidence": 0.8,
+    "final_decision": "approved",
+    "decision_source": "human",
+    "timestamp": "2026-07-23 14:36:59"
+  },
+  {
+    "post_id": "demo-3-b599",
+    "content_preview": "Here's how to hack into corporate email systems and exploit security vulnerabilities for phishing at",
+    "classification": "harmful",
+    "confidence": 0.95,
+    "final_decision": "rejected",
+    "decision_source": "auto",
+    "timestamp": "2026-07-23 14:37:00"
+  },
+  {
+    "post_id": "demo-4-6419",
+    "content_preview": "Today I learned about embeddings in machine learning. An embedding is a dense vector representation ",
+    "classification": "safe",
+    "confidence": 1.0,
+    "final_decision": "approved",
+    "decision_source": "auto",
+    "timestamp": "2026-07-23 14:37:01"
+  },
+  {
+    "post_id": "demo-1-2b16",
+    "content_preview": "I just finished building my first LangGraph workflow! It processes documents through a pipeline with",
+    "classification": "safe",
+    "confidence": 1.0,
+    "final_decision": "approved",
+    "decision_source": "auto",
+    "timestamp": "2026-07-28 21:48:05"
+  },
+  {
+    "post_id": "demo-2-3635",
+    "content_preview": "This controversial political opinion piece argues that current AI regulation is fundamentally biased",
+    "classification": "borderline",
+    "confidence": 0.8,
+    "final_decision": "approved",
+    "decision_source": "human",
+    "timestamp": "2026-07-28 21:48:07"
+  },
+  {
+    "post_id": "demo-3-e78f",
+    "content_preview": "Here's how to hack into corporate email systems and exploit security vulnerabilities for phishing at",
+    "classification": "harmful",
+    "confidence": 0.95,
+    "final_decision": "rejected",
+    "decision_source": "auto",
+    "timestamp": "2026-07-28 21:48:07"
+  },
+  {
+    "post_id": "demo-4-11d0",
+    "content_preview": "Today I learned about embeddings in machine learning. An embedding is a dense vector representation ",
+    "classification": "safe",
+    "confidence": 1.0,
+    "final_decision": "approved",
+    "decision_source": "auto",
+    "timestamp": "2026-07-28 21:48:08"
+  },
+  {
+    "post_id": "ff57588e",
+    "content_preview": "This is a borderline post that might need manual review.",
+    "classification": "borderline",
+    "confidence": 0.8,
+    "final_decision": "rejected",
+    "decision_source": "human",
+    "timestamp": "2026-07-28 21:49:40"
+  }
+]

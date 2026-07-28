@@ -1,0 +1,51 @@
+[
+  {
+    "query": "What are the three main benefits of using LangGraph over simple LangChain chains?",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 3286,
+    "timestamp": "2026-07-23 14:36:49"
+  },
+  {
+    "query": "Explain the concept of human-in-the-loop in AI agent systems.",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 3541,
+    "timestamp": "2026-07-23 14:36:53"
+  },
+  {
+    "query": "What is a TypedDict state schema and why is it important in LangGraph?",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 2772,
+    "timestamp": "2026-07-23 14:36:56"
+  },
+  {
+    "query": "What are the three main benefits of using LangGraph over simple LangChain chains?",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 2502,
+    "timestamp": "2026-07-28 21:41:49"
+  },
+  {
+    "query": "Explain the concept of human-in-the-loop in AI agent systems.",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 2927,
+    "timestamp": "2026-07-28 21:41:51"
+  },
+  {
+    "query": "What is a TypedDict state schema and why is it important in LangGraph?",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 3676,
+    "timestamp": "2026-07-28 21:41:55"
+  },
+  {
+    "query": "Explain how quantum entanglement can be used for cryptography",
+    "iterations": 1,
+    "passed": true,
+    "final_length": 4351,
+    "timestamp": "2026-07-28 21:42:36"
+  }
+]
