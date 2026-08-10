@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  memory-api:
+    build: .
+    container_name: memory-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - memory_data:/app/data
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  dashboard:
+    build: .
+    container_name: memory-dashboard
+    command: streamlit run dashboard.py --server.port 8501 --server.headless true
+    ports:
+      - "8501:8501"
+    volumes:
+      - memory_data:/app/data
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    depends_on:
+      - memory-api
+    restart: unless-stopped
+
+volumes:
+  memory_data:
+    driver: local

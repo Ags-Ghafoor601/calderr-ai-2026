@@ -1,0 +1,36 @@
+{
+  "passed": 5,
+  "failed": 0,
+  "details": [
+    {
+      "question": "Who founded the company that developed GPT-4?",
+      "answer": "The founders of OpenAI, the company that released GPT-4, are Sam Altman, Elon Musk, Greg Brockman, Ilya Sutskever, Wojciech Zaremski, and John Schulman. However, the graph does not explicitly state that OpenAI developed GPT-4, it only states that GPT-4 was released by OpenAI and developed by Microsoft. Therefore, the founders of the company that developed GPT-4 are the founders of Microsoft, but they are not specified in the graph.",
+      "passed": true,
+      "keyword_search_failed": true
+    },
+    {
+      "question": "Who is the CEO of the company that developed AlphaFold?",
+      "answer": "Demis Hassabis",
+      "passed": true,
+      "keyword_search_failed": true
+    },
+    {
+      "question": "Where is the headquarters of the company that originally developed PyTorch?",
+      "answer": "Menlo Park",
+      "passed": true,
+      "keyword_search_failed": true
+    },
+    {
+      "question": "Which cloud provider invested heavily in the startup that developed the Claude family of models?",
+      "answer": "Amazon",
+      "passed": true,
+      "keyword_search_failed": true
+    },
+    {
+      "question": "What startup accelerator was previously led by the CEO of the organisation that released and developed GPT-4?",
+      "answer": "Y Combinator",
+      "passed": true,
+      "keyword_search_failed": true
+    }
+  ]
+}

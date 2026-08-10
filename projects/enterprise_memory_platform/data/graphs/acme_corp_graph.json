@@ -1,0 +1,65 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "entity_type": "company",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "Acme Corporation"
+    },
+    {
+      "entity_type": "person",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "Jane Smith"
+    },
+    {
+      "entity_type": "technology",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "API v3"
+    },
+    {
+      "entity_type": "company",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "Globex Inc"
+    },
+    {
+      "entity_type": "concept",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "EU Regulations"
+    }
+  ],
+  "edges": [
+    {
+      "relation_type": "developing",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Acme Corporation",
+      "target": "API v3"
+    },
+    {
+      "relation_type": "competes_with",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Acme Corporation",
+      "target": "Globex Inc"
+    },
+    {
+      "relation_type": "ceo_of",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Jane Smith",
+      "target": "Acme Corporation"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "scores_by_category": {
+    "vector": {
+      "factual": 5,
+      "relational": 5,
+      "complex": 5
+    },
+    "graph": {
+      "factual": 1,
+      "relational": 5,
+      "complex": 3
+    },
+    "hybrid": {
+      "factual": 3,
+      "relational": 4,
+      "complex": 4
+    }
+  },
+  "totals_by_category": {
+    "factual": 5,
+    "relational": 5,
+    "complex": 5
+  },
+  "overall_scores": {
+    "vector": 15,
+    "graph": 9,
+    "hybrid": 11,
+    "total": 15
+  },
+  "router_accuracy": 14,
+  "hybrid_wins_complex": false,
+  "details": [
+    {
+      "question": "What year was OpenAI founded?",
+      "category": "factual",
+      "expected_keywords": [
+        "2015"
+      ],
+      "vector_answer": "OpenAI was founded in 2015.",
+      "graph_answer": "There is no information provided in the context about the year OpenAI was founded.",
+      "hybrid_answer": "There is no information about the year OpenAI was founded in the provided context.",
+      "vector_pass": true,
+      "graph_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "question": "Where is NVIDIA Corporation headquartered?",
+      "category": "factual",
+      "expected_keywords": [
+        "santa clara"
+      ],
+      "vector_answer": "NVIDIA Corporation is headquartered in Santa Clara, California.",
+      "graph_answer": "NVIDIA Corporation is headquartered in Santa Clara, California.",
+      "hybrid_answer": "NVIDIA Corporation is headquartered in Santa Clara, California.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "What is the name of OpenAI's multimodal model released in March 2023?",
+      "category": "factual",
+      "expected_keywords": [
+        "gpt-4"
+      ],
+      "vector_answer": "GPT-4.",
+      "graph_answer": "There is not enough information in the provided context to answer the question.",
+      "hybrid_answer": "I couldn't find any information about the name of OpenAI's multimodal model released in March 2023 in the provided context.",
+      "vector_pass": true,
+      "graph_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "question": "How many proteins has AlphaFold predicted structures for?",
+      "category": "factual",
+      "expected_keywords": [
+        "200 million"
+      ],
+      "vector_answer": "AlphaFold has predicted structures for over 200 million proteins.",
+      "graph_answer": "There is no information in the provided context about the number of proteins AlphaFold has predicted structures for.",
+      "hybrid_answer": "AlphaFold has predicted structures for over 200 million proteins.",
+      "vector_pass": true,
+      "graph_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "question": "What is the name of Stability AI's text-to-image model?",
+      "category": "factual",
+      "expected_keywords": [
+        "stable diffusion"
+      ],
+      "vector_answer": "Stable Diffusion is Stability AI's open-source text-to-image generative model.",
+      "graph_answer": "There is no information in the provided context about the name of Stability AI's text-to-image model.",
+      "hybrid_answer": "Stable Diffusion is Stability AI's text-to-image generative model.",
+      "vector_pass": true,
+      "graph_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "question": "Who founded Anthropic?",
+      "category": "relational",
+      "expected_keywords": [
+        "dario amodei",
+        "daniela amodei"
+      ],
+      "vector_answer": "Dario Amodei and Daniela Amodei founded Anthropic in 2021.",
+      "graph_answer": "Dario Amodei and Daniela Amodei founded Anthropic.",
+      "hybrid_answer": "Dario Amodei and Daniela Amodei founded Anthropic.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "What company developed the LLaMA language models?",
+      "category": "relational",
+      "expected_keywords": [
+        "meta ai",
+        "meta"
+      ],
+      "vector_answer": "Meta AI developed the LLaMA language models.",
+      "graph_answer": "Meta AI developed the LLaMA language models.",
+      "hybrid_answer": "Meta AI developed the LLaMA language models.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "Who is the CEO of Google DeepMind?",
+      "category": "relational",
+      "expected_keywords": [
+        "demis hassabis"
+      ],
+      "vector_answer": "Demis Hassabis serves as the CEO of Google DeepMind.",
+      "graph_answer": "Demis Hassabis is the CEO of Google DeepMind.",
+      "hybrid_answer": "Demis Hassabis.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "What company invested over $10 billion in OpenAI?",
+      "category": "relational",
+      "expected_keywords": [
+        "microsoft"
+      ],
+      "vector_answer": "Microsoft invested over $10 billion in OpenAI.",
+      "graph_answer": "The context does not mention the company that invested over $10 billion in OpenAI. However, it does mention that OpenAI uses Microsoft Azure.",
+      "hybrid_answer": "The context does not mention the company that invested over $10 billion in OpenAI.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": false
+    },
+    {
+      "question": "Who introduced the transformer architecture?",
+      "category": "relational",
+      "expected_keywords": [
+        "ashish vaswani",
+        "google brain"
+      ],
+      "vector_answer": "Ashish Vaswani and colleagues at Google Brain introduced the transformer architecture in the 2017 paper 'Attention Is All You Need'.",
+      "graph_answer": "Ashish Vaswani introduced the transformer architecture.",
+      "hybrid_answer": "Ashish Vaswani introduced the transformer architecture.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "Who founded the company that developed GPT-4, and what was his previous role at a startup accelerator?",
+      "category": "complex",
+      "expected_keywords": [
+        "sam altman",
+        "y combinator"
+      ],
+      "vector_answer": "Sam Altman founded the company that developed GPT-4, OpenAI. His previous role at a startup accelerator was as the president of Y Combinator.",
+      "graph_answer": "Based on the provided context, the company that developed GPT-4 is OpenAI. \n\nHowever, the context does not specify who founded OpenAI. It mentions that Sam Altman, Elon Musk, and Greg Brockman were all involved in founding OpenAI. \n\nThere is no information in the context about their previous roles at a startup accelerator.",
+      "hybrid_answer": "Based on the provided context, the company that developed GPT-4 is OpenAI. \n\nOpenAI was founded by Sam Altman, Elon Musk, and Greg Brockman. \n\nHowever, the context does not provide information about their previous roles at a startup accelerator.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "What AI safety technique is used by the company whose founders previously worked at OpenAI?",
+      "category": "complex",
+      "expected_keywords": [
+        "constitutional ai",
+        "anthropic"
+      ],
+      "vector_answer": "The company whose founders previously worked at OpenAI is Anthropic. The AI safety technique used by Anthropic is not explicitly mentioned in the provided context. However, it is mentioned that Anthropic focuses on AI safety research, which includes key concerns like alignment, interpretability, and existential risk from advanced AI systems.",
+      "graph_answer": "There is not enough information in the provided context to determine which company's founders previously worked at OpenAI.",
+      "hybrid_answer": "There is not enough information in the provided context to answer the question.",
+      "vector_pass": true,
+      "graph_pass": false,
+      "hybrid_pass": false
+    },
+    {
+      "question": "What GPU hardware powers the training of models like GPT-4, and where is its manufacturer headquartered?",
+      "category": "complex",
+      "expected_keywords": [
+        "nvidia",
+        "santa clara",
+        "h100",
+        "a100"
+      ],
+      "vector_answer": "The GPU hardware that powers the training of models like GPT-4 is the A100 and H100 data centre GPUs, designed by NVIDIA Corporation. NVIDIA Corporation is headquartered in Santa Clara, California.",
+      "graph_answer": "Based on the provided context, the GPU hardware that powers the training of models like GPT-4 is not explicitly mentioned. However, it is mentioned that GPU powers AI. \n\nThe manufacturer of the GPU is NVIDIA Corporation, and it is headquartered in Santa Clara, California, USA.",
+      "hybrid_answer": "Based on the provided context, the GPU hardware that powers the training of models like GPT-4 is not explicitly mentioned. However, it is mentioned that GPU powers AI. \n\nThe manufacturer of the GPU is NVIDIA Corporation, which is headquartered in Santa Clara, California, USA.",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    },
+    {
+      "question": "Which researchers who worked at Google DeepMind and Meta AI went on to found a company in Paris?",
+      "category": "complex",
+      "expected_keywords": [
+        "mistral",
+        "arthur mensch",
+        "guillaume lample",
+        "paris"
+      ],
+      "vector_answer": "Arthur Mensch, Guillaume Lample, and Timothee Lacroix, former researchers from Google DeepMind and Meta AI, founded Mistral AI in April 2023.",
+      "graph_answer": "There is not enough information in the provided context to answer the question.",
+      "hybrid_answer": "There is not enough information in the provided context to determine which researchers went on to found a company in Paris.",
+      "vector_pass": true,
+      "graph_pass": false,
+      "hybrid_pass": true
+    },
+    {
+      "question": "What cloud provider invested in Anthropic, and what custom chips do they offer for AI training?",
+      "category": "complex",
+      "expected_keywords": [
+        "aws",
+        "amazon",
+        "trainium",
+        "inferentia"
+      ],
+      "vector_answer": "Amazon Web Services (AWS) invested up to $4 billion in Anthropic in 2023. As part of the deal, Anthropic uses AWS custom chips, specifically Trainium and Inferentia, for training and deploying Claude models.",
+      "graph_answer": "Based on the provided context, the cloud provider that invested in Anthropic is Amazon Web Services (AWS). \n\nAWS offers the following custom chips for AI training: \n\n1. Trainium\n2. Inferentia",
+      "hybrid_answer": "Based on the provided context, the cloud provider that invested in Anthropic is Amazon Web Services (AWS). \n\nAs for the custom chips offered by AWS for AI training, the context mentions the following:\n\n1. Trainium\n2. Inferentia",
+      "vector_pass": true,
+      "graph_pass": true,
+      "hybrid_pass": true
+    }
+  ]
+}

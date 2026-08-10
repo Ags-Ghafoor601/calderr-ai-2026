@@ -1,0 +1,13 @@
+groq>=0.11
+pydantic>=2.0
+python-dotenv>=1.0
+fastapi>=0.115
+uvicorn>=0.30
+chromadb>=0.5
+networkx>=3.0
+pyvis>=0.3
+streamlit>=1.35
+rich>=13.0
+requests>=2.31
+pandas>=2.0
+matplotlib>=3.9

@@ -1,0 +1,1536 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "entity_type": "company",
+      "description": "Artificial intelligence company",
+      "aliases": [],
+      "id": "OpenAI"
+    },
+    {
+      "entity_type": "person",
+      "description": "CEO of OpenAI",
+      "aliases": [],
+      "id": "Sam Altman"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of OpenAI",
+      "aliases": [],
+      "id": "Elon Musk"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of OpenAI",
+      "aliases": [],
+      "id": "Greg Brockman"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of OpenAI",
+      "aliases": [],
+      "id": "Ilya Sutskever"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of OpenAI",
+      "aliases": [],
+      "id": "Wojciech Zaremski"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of OpenAI",
+      "aliases": [],
+      "id": "John Schulman"
+    },
+    {
+      "entity_type": "place",
+      "description": "City in California",
+      "aliases": [],
+      "id": "San Francisco"
+    },
+    {
+      "entity_type": "place",
+      "description": "State in the US",
+      "aliases": [],
+      "id": "California"
+    },
+    {
+      "entity_type": "concept",
+      "description": "Type of artificial intelligence",
+      "aliases": [
+        "Artificial General Intelligence",
+        "AGI"
+      ],
+      "id": "Artificial General Intelligence"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Artificial intelligence model",
+      "aliases": [],
+      "id": "GPT-4"
+    },
+    {
+      "entity_type": "technology",
+      "description": "language model",
+      "aliases": [],
+      "id": "GPT-3.5"
+    },
+    {
+      "entity_type": "concept",
+      "description": "reinforcement learning from human feedback",
+      "aliases": [
+        "reinforcement learning from human feedback"
+      ],
+      "id": "RLHF"
+    },
+    {
+      "entity_type": "company",
+      "description": "Subsidiary of Google",
+      "aliases": [
+        "DeepMind"
+      ],
+      "id": "Google DeepMind"
+    },
+    {
+      "entity_type": "company",
+      "description": "research organization",
+      "aliases": [],
+      "id": "Google Brain"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI research company",
+      "aliases": [],
+      "id": "DeepMind"
+    },
+    {
+      "entity_type": "person",
+      "description": "CEO of Google DeepMind",
+      "aliases": [],
+      "id": "Demis Hassabis"
+    },
+    {
+      "entity_type": "company",
+      "description": "multinational conglomerate",
+      "aliases": [],
+      "id": "Alphabet Inc."
+    },
+    {
+      "entity_type": "place",
+      "description": "City in the UK",
+      "aliases": [],
+      "id": "London"
+    },
+    {
+      "entity_type": "place",
+      "description": "country in Europe",
+      "aliases": [],
+      "id": "United Kingdom"
+    },
+    {
+      "entity_type": "technology",
+      "description": "protein structure prediction system",
+      "aliases": [
+        "AlphaFold2"
+      ],
+      "id": "AlphaFold"
+    },
+    {
+      "entity_type": "concept",
+      "description": "competition",
+      "aliases": [],
+      "id": "CASP14"
+    },
+    {
+      "entity_type": "technology",
+      "description": "type of neural network architecture",
+      "aliases": [],
+      "id": "transformer-based neural network architecture"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI research company",
+      "aliases": [
+        "Facebook AI Research"
+      ],
+      "id": "Meta AI"
+    },
+    {
+      "entity_type": "company",
+      "description": "parent company of Meta AI",
+      "aliases": [
+        "Facebook"
+      ],
+      "id": "Meta Platforms"
+    },
+    {
+      "entity_type": "person",
+      "description": "Turing Award winner and Chief AI Scientist at Meta",
+      "aliases": [],
+      "id": "Yann LeCun"
+    },
+    {
+      "entity_type": "place",
+      "description": "location of Meta AI headquarters",
+      "aliases": [],
+      "id": "Menlo Park"
+    },
+    {
+      "entity_type": "technology",
+      "description": "large language model",
+      "aliases": [
+        "Large Language Model Meta AI"
+      ],
+      "id": "LLaMA"
+    },
+    {
+      "entity_type": "product",
+      "description": "specific model in the LLaMA family",
+      "aliases": [],
+      "id": "LLaMA 2"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI research organisation",
+      "aliases": [],
+      "id": "Anthropic"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of Anthropic",
+      "aliases": [],
+      "id": "Dario Amodei"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of Anthropic",
+      "aliases": [],
+      "id": "Daniela Amodei"
+    },
+    {
+      "entity_type": "product",
+      "description": "AI model",
+      "aliases": [
+        "Claude 3",
+        "Sonnet",
+        "Opus",
+        "Haiku"
+      ],
+      "id": "Claude"
+    },
+    {
+      "entity_type": "concept",
+      "description": "Research field focused on safe AI development",
+      "aliases": [],
+      "id": "AI safety research"
+    },
+    {
+      "entity_type": "concept",
+      "description": "technique for alignment",
+      "aliases": [
+        "CAI"
+      ],
+      "id": "Constitutional AI (CAI)"
+    },
+    {
+      "entity_type": "company",
+      "description": "Technology company",
+      "aliases": [],
+      "id": "NVIDIA Corporation"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of NVIDIA",
+      "aliases": [],
+      "id": "Jensen Huang"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of NVIDIA",
+      "aliases": [],
+      "id": "Chris Malachowsky"
+    },
+    {
+      "entity_type": "person",
+      "description": "Co-founder of NVIDIA",
+      "aliases": [],
+      "id": "Curtis Priem"
+    },
+    {
+      "entity_type": "place",
+      "description": "City in California",
+      "aliases": [],
+      "id": "Santa Clara"
+    },
+    {
+      "entity_type": "product",
+      "description": "Data centre GPU",
+      "aliases": [],
+      "id": "A100"
+    },
+    {
+      "entity_type": "product",
+      "description": "Data centre GPU",
+      "aliases": [],
+      "id": "H100"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Graphics Processing Unit",
+      "aliases": [],
+      "id": "GPU"
+    },
+    {
+      "entity_type": "concept",
+      "description": "Artificial Intelligence",
+      "aliases": [
+        "Artificial Intelligence"
+      ],
+      "id": "AI"
+    },
+    {
+      "entity_type": "technology",
+      "description": "neural network architecture",
+      "aliases": [],
+      "id": "Transformer"
+    },
+    {
+      "entity_type": "person",
+      "description": "researcher",
+      "aliases": [],
+      "id": "Ashish Vaswani"
+    },
+    {
+      "entity_type": "concept",
+      "description": "research paper",
+      "aliases": [],
+      "id": "Attention Is All You Need"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI company",
+      "aliases": [],
+      "id": "Hugging Face"
+    },
+    {
+      "entity_type": "person",
+      "description": "co-founder of Hugging Face",
+      "aliases": [],
+      "id": "Clement Delangue"
+    },
+    {
+      "entity_type": "person",
+      "description": "co-founder of Hugging Face",
+      "aliases": [],
+      "id": "Julien Chaumond"
+    },
+    {
+      "entity_type": "person",
+      "description": "co-founder of Hugging Face",
+      "aliases": [],
+      "id": "Thomas Wolf"
+    },
+    {
+      "entity_type": "place",
+      "description": "city in the United States",
+      "aliases": [
+        "NYC"
+      ],
+      "id": "New York City"
+    },
+    {
+      "entity_type": "product",
+      "description": "open-source repository of machine learning models",
+      "aliases": [],
+      "id": "Hugging Face Hub"
+    },
+    {
+      "entity_type": "technology",
+      "description": "field of study",
+      "aliases": [
+        "ML"
+      ],
+      "id": "machine learning"
+    },
+    {
+      "entity_type": "technology",
+      "description": "open-source machine learning framework",
+      "aliases": [],
+      "id": "PyTorch"
+    },
+    {
+      "entity_type": "organization",
+      "description": "maintains PyTorch",
+      "aliases": [],
+      "id": "PyTorch Foundation"
+    },
+    {
+      "entity_type": "organization",
+      "description": "non-profit technology organization",
+      "aliases": [],
+      "id": "Linux Foundation"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI company",
+      "aliases": [],
+      "id": "Stability AI"
+    },
+    {
+      "entity_type": "person",
+      "description": "Founder of Stability AI",
+      "aliases": [],
+      "id": "Emad Mostaque"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Text-to-image generative model",
+      "aliases": [],
+      "id": "Stable Diffusion"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Text-to-image generative model",
+      "aliases": [],
+      "id": "DALL-E"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI company",
+      "aliases": [],
+      "id": "Midjourney"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI company",
+      "aliases": [],
+      "id": "Mistral AI"
+    },
+    {
+      "entity_type": "person",
+      "description": "co-founder of Mistral AI",
+      "aliases": [],
+      "id": "Arthur Mensch"
+    },
+    {
+      "entity_type": "person",
+      "description": "co-founder of Mistral AI",
+      "aliases": [],
+      "id": "Guillaume Lample"
+    },
+    {
+      "entity_type": "person",
+      "description": "co-founder of Mistral AI",
+      "aliases": [],
+      "id": "Timothee Lacroix"
+    },
+    {
+      "entity_type": "place",
+      "description": "city in France",
+      "aliases": [],
+      "id": "Paris"
+    },
+    {
+      "entity_type": "place",
+      "description": "country in Europe",
+      "aliases": [],
+      "id": "France"
+    },
+    {
+      "entity_type": "product",
+      "description": "language model",
+      "aliases": [],
+      "id": "Mixtral 8x7B"
+    },
+    {
+      "entity_type": "company",
+      "description": "Multinational technology company",
+      "aliases": [
+        "Google LLC"
+      ],
+      "id": "Google"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Family of multimodal AI models",
+      "aliases": [
+        "Gemini family"
+      ],
+      "id": "Gemini"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Earlier family of AI models",
+      "aliases": [],
+      "id": "PaLM"
+    },
+    {
+      "entity_type": "product",
+      "description": "Advanced version of Gemini",
+      "aliases": [],
+      "id": "Gemini Ultra"
+    },
+    {
+      "entity_type": "product",
+      "description": "Chatbot developed by Google",
+      "aliases": [
+        "Gemini"
+      ],
+      "id": "Bard"
+    },
+    {
+      "entity_type": "concept",
+      "description": "Release time of Gemini",
+      "aliases": [],
+      "id": "December 2023"
+    },
+    {
+      "entity_type": "company",
+      "description": "company co-founded by Sam Altman",
+      "aliases": [],
+      "id": "Loopt"
+    },
+    {
+      "entity_type": "company",
+      "description": "startup accelerator",
+      "aliases": [],
+      "id": "Y Combinator"
+    },
+    {
+      "entity_type": "person",
+      "description": "Turing Award winner",
+      "aliases": [],
+      "id": "Geoffrey Hinton"
+    },
+    {
+      "entity_type": "person",
+      "description": "Turing Award winner",
+      "aliases": [],
+      "id": "Yoshua Bengio"
+    },
+    {
+      "entity_type": "company",
+      "description": "Technology company",
+      "aliases": [],
+      "id": "Meta"
+    },
+    {
+      "entity_type": "place",
+      "description": "University",
+      "aliases": [
+        "NYU"
+      ],
+      "id": "New York University"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Type of neural network",
+      "aliases": [
+        "CNNs"
+      ],
+      "id": "Convolutional Neural Networks (CNNs)"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Type of artificial intelligence model",
+      "aliases": [],
+      "id": "Large Language Models"
+    },
+    {
+      "entity_type": "company",
+      "description": "Technology company",
+      "aliases": [],
+      "id": "Microsoft"
+    },
+    {
+      "entity_type": "product",
+      "description": "Chat service",
+      "aliases": [
+        "Microsoft Copilot"
+      ],
+      "id": "Bing Chat"
+    },
+    {
+      "entity_type": "product",
+      "description": "Productivity tool",
+      "aliases": [],
+      "id": "Microsoft 365 Copilot"
+    },
+    {
+      "entity_type": "product",
+      "description": "Coding assistant",
+      "aliases": [],
+      "id": "GitHub Copilot"
+    },
+    {
+      "entity_type": "product",
+      "description": "cloud computing platform",
+      "aliases": [],
+      "id": "Microsoft Azure"
+    },
+    {
+      "entity_type": "company",
+      "description": "cloud computing platform",
+      "aliases": [
+        "AWS"
+      ],
+      "id": "Amazon Web Services"
+    },
+    {
+      "entity_type": "technology",
+      "description": "custom chip",
+      "aliases": [],
+      "id": "Trainium"
+    },
+    {
+      "entity_type": "technology",
+      "description": "custom chip",
+      "aliases": [],
+      "id": "Inferentia"
+    },
+    {
+      "entity_type": "company",
+      "description": "cloud computing platform",
+      "aliases": [],
+      "id": "Google Cloud Platform"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI safety research organisation",
+      "aliases": [
+        "CAIS"
+      ],
+      "id": "Center for AI Safety"
+    },
+    {
+      "entity_type": "company",
+      "description": "AI research organisation",
+      "aliases": [
+        "MIRI"
+      ],
+      "id": "Machine Intelligence Research Institute"
+    },
+    {
+      "entity_type": "concept",
+      "description": "community of researchers",
+      "aliases": [],
+      "id": "AI safety research community"
+    },
+    {
+      "entity_type": "concept",
+      "description": "ensuring AI systems act according to human values",
+      "aliases": [],
+      "id": "alignment"
+    },
+    {
+      "entity_type": "concept",
+      "description": "understanding how AI models make decisions",
+      "aliases": [],
+      "id": "interpretability"
+    },
+    {
+      "entity_type": "concept",
+      "description": "risk of human extinction due to AI",
+      "aliases": [],
+      "id": "existential risk from advanced AI systems"
+    },
+    {
+      "entity_type": "technology",
+      "description": "artificial intelligence systems",
+      "aliases": [],
+      "id": "AI systems"
+    },
+    {
+      "entity_type": "technology",
+      "description": "artificial intelligence models",
+      "aliases": [],
+      "id": "AI models"
+    },
+    {
+      "entity_type": "unknown",
+      "description": "",
+      "aliases": [],
+      "id": "Google's Bard (now Gemini) chatbot"
+    }
+  ],
+  "edges": [
+    {
+      "relation_type": "founded_by",
+      "evidence": "OpenAI was founded in December 2015 by Sam Altman",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "Sam Altman"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "OpenAI was founded in December 2015 by Elon Musk",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "Elon Musk"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "OpenAI was founded in December 2015 by Greg Brockman",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "Greg Brockman"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "OpenAI was founded in December 2015 by Ilya Sutskever",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "Ilya Sutskever"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "OpenAI was founded in December 2015 by Wojciech Zaremski",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "Wojciech Zaremski"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "OpenAI was founded in December 2015 by John Schulman",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "John Schulman"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "The organisation is headquartered in San Francisco, California",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "San Francisco"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "OpenAI's mission is to ensure that artificial general intelligence benefits all of humanity",
+      "confidence": 0.6,
+      "source": "OpenAI",
+      "target": "Artificial General Intelligence"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "OpenAI uses to train and deploy its models",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "Microsoft Azure"
+    },
+    {
+      "relation_type": "released_by",
+      "evidence": "developed by OpenAI and released in March 2023",
+      "confidence": 0.9,
+      "source": "OpenAI",
+      "target": "GPT-4"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "joining OpenAI",
+      "confidence": 0.9,
+      "source": "Sam Altman",
+      "target": "OpenAI"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "He previously co-founded Loopt",
+      "confidence": 0.9,
+      "source": "Sam Altman",
+      "target": "Loopt"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "served as president of Y Combinator",
+      "confidence": 0.9,
+      "source": "Sam Altman",
+      "target": "Y Combinator"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "developed by OpenAI",
+      "confidence": 0.9,
+      "source": "GPT-4",
+      "target": "OpenAI"
+    },
+    {
+      "relation_type": "trained_with",
+      "evidence": "trained using reinforcement learning from human feedback (RLHF)",
+      "confidence": 0.9,
+      "source": "GPT-4",
+      "target": "RLHF"
+    },
+    {
+      "relation_type": "succeeded_by",
+      "evidence": "demonstrated significantly improved performance over GPT-3.5",
+      "confidence": 0.6,
+      "source": "GPT-4",
+      "target": "GPT-3.5"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "foundation of virtually all modern large language models including GPT-4",
+      "confidence": 0.9,
+      "source": "GPT-4",
+      "target": "Transformer"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "integrated GPT-4 into its products",
+      "confidence": 0.9,
+      "source": "GPT-4",
+      "target": "Microsoft"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "formed in April 2023 by merging Google Brain and DeepMind",
+      "confidence": 0.9,
+      "source": "Google DeepMind",
+      "target": "Google Brain"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "formed in April 2023 by merging Google Brain and DeepMind",
+      "confidence": 0.9,
+      "source": "Google DeepMind",
+      "target": "DeepMind"
+    },
+    {
+      "relation_type": "owned_by",
+      "evidence": "The organisation is owned by Alphabet Inc.",
+      "confidence": 0.9,
+      "source": "Google DeepMind",
+      "target": "Alphabet Inc."
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "is headquartered in London, United Kingdom",
+      "confidence": 0.9,
+      "source": "Google DeepMind",
+      "target": "London"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "Gemini was built by Google DeepMind",
+      "confidence": 0.9,
+      "source": "Google DeepMind",
+      "target": "Gemini"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "Google DeepMind",
+      "confidence": 0.8,
+      "source": "Google DeepMind",
+      "target": "Google"
+    },
+    {
+      "relation_type": "ceo_of",
+      "evidence": "Demis Hassabis serves as the CEO of Google DeepMind",
+      "confidence": 0.9,
+      "source": "Demis Hassabis",
+      "target": "Google DeepMind"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "London, United Kingdom",
+      "confidence": 0.9,
+      "source": "London",
+      "target": "United Kingdom"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "developed by Google DeepMind",
+      "confidence": 0.9,
+      "source": "AlphaFold",
+      "target": "Google DeepMind"
+    },
+    {
+      "relation_type": "won",
+      "evidence": "won the CASP14 competition",
+      "confidence": 0.9,
+      "source": "AlphaFold",
+      "target": "CASP14"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "uses a transformer-based neural network architecture",
+      "confidence": 0.9,
+      "source": "AlphaFold",
+      "target": "transformer-based neural network architecture"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "the artificial intelligence research division of Meta Platforms",
+      "confidence": 0.9,
+      "source": "Meta AI",
+      "target": "Meta Platforms"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "Meta AI is headquartered in Menlo Park, California",
+      "confidence": 0.9,
+      "source": "Meta AI",
+      "target": "Menlo Park"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "The division developed the LLaMA family of open-source large language models",
+      "confidence": 0.9,
+      "source": "Meta AI",
+      "target": "LLaMA"
+    },
+    {
+      "relation_type": "ceo_of",
+      "evidence": "is led by Yann LeCun as Chief AI Scientist",
+      "confidence": 0.6,
+      "source": "Yann LeCun",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "LeCun is the Chief AI Scientist at Meta",
+      "confidence": 0.9,
+      "source": "Yann LeCun",
+      "target": "Meta"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "LeCun is a professor at New York University",
+      "confidence": 0.9,
+      "source": "Yann LeCun",
+      "target": "New York University"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "LeCun is known for his pioneering work on convolutional neural networks (CNNs)",
+      "confidence": 0.9,
+      "source": "Yann LeCun",
+      "target": "Convolutional Neural Networks (CNNs)"
+    },
+    {
+      "relation_type": "won",
+      "evidence": "Yann LeCun, a Turing Award winner alongside Geoffrey Hinton and Yoshua Bengio",
+      "confidence": 0.9,
+      "source": "Yann LeCun",
+      "target": "Geoffrey Hinton"
+    },
+    {
+      "relation_type": "won",
+      "evidence": "Yann LeCun, a Turing Award winner alongside Geoffrey Hinton and Yoshua Bengio",
+      "confidence": 0.9,
+      "source": "Yann LeCun",
+      "target": "Yoshua Bengio"
+    },
+    {
+      "relation_type": "critic_of",
+      "evidence": "He has been a vocal critic of large language models as a path to AGI",
+      "confidence": 0.9,
+      "source": "Yann LeCun",
+      "target": "Large Language Models"
+    },
+    {
+      "relation_type": "released_by",
+      "evidence": "released by Meta AI",
+      "confidence": 0.9,
+      "source": "LLaMA",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "foundation of virtually all modern large language models including LLaMA",
+      "confidence": 0.9,
+      "source": "LLaMA",
+      "target": "Transformer"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "framework behind LLaMA",
+      "confidence": 0.9,
+      "source": "LLaMA",
+      "target": "PyTorch"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "LLaMA 2 was released",
+      "confidence": 0.9,
+      "source": "LLaMA",
+      "target": "LLaMA 2"
+    },
+    {
+      "relation_type": "released_by",
+      "evidence": "released in July 2023",
+      "confidence": 0.9,
+      "source": "LLaMA 2",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "LLaMA 2 was released",
+      "confidence": 0.9,
+      "source": "LLaMA 2",
+      "target": "LLaMA"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "Anthropic was founded in 2021 by Dario Amodei and Daniela Amodei",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "Dario Amodei"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "Anthropic was founded in 2021 by Dario Amodei and Daniela Amodei",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "Daniela Amodei"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "Anthropic is headquartered in San Francisco",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "San Francisco"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "focuses on AI safety research",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "AI safety research"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "Anthropic uses AWS custom chips (Trainium and Inferentia) for training and deploying Claude models",
+      "confidence": 0.8,
+      "source": "Anthropic",
+      "target": "Claude"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "Anthropic uses AWS custom chips (Trainium and Inferentia) for training and deploying Claude models",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "Amazon Web Services"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "Anthropic uses AWS custom chips (Trainium and Inferentia) for training and deploying Claude models",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "Trainium"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "Anthropic uses AWS custom chips (Trainium and Inferentia) for training and deploying Claude models",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "Inferentia"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "The AI safety research community includes organisations like Anthropic",
+      "confidence": 0.9,
+      "source": "Anthropic",
+      "target": "AI safety research community"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former employees of OpenAI",
+      "confidence": 0.6,
+      "source": "Dario Amodei",
+      "target": "OpenAI"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former employees of OpenAI",
+      "confidence": 0.6,
+      "source": "Daniela Amodei",
+      "target": "OpenAI"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "developed by Anthropic",
+      "confidence": 0.9,
+      "source": "Claude",
+      "target": "Anthropic"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "uses a technique called Constitutional AI (CAI)",
+      "confidence": 0.9,
+      "source": "Claude",
+      "target": "Constitutional AI (CAI)"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "Claude 3, released in 2024",
+      "confidence": 0.9,
+      "source": "Claude",
+      "target": "Claude"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "foundation of virtually all modern large language models including Claude",
+      "confidence": 0.9,
+      "source": "Claude",
+      "target": "Transformer"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "AI assistant",
+      "confidence": 0.8,
+      "source": "Claude",
+      "target": "AI"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "NVIDIA Corporation, founded by Jensen Huang",
+      "confidence": 0.9,
+      "source": "NVIDIA Corporation",
+      "target": "Jensen Huang"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "NVIDIA Corporation, founded by Chris Malachowsky",
+      "confidence": 0.9,
+      "source": "NVIDIA Corporation",
+      "target": "Chris Malachowsky"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "NVIDIA Corporation, founded by Curtis Priem",
+      "confidence": 0.9,
+      "source": "NVIDIA Corporation",
+      "target": "Curtis Priem"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "NVIDIA Corporation is headquartered in Santa Clara",
+      "confidence": 0.9,
+      "source": "NVIDIA Corporation",
+      "target": "Santa Clara"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "NVIDIA designs the GPU hardware",
+      "confidence": 0.9,
+      "source": "NVIDIA Corporation",
+      "target": "GPU"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "NVIDIA Corporation is headquartered in Santa Clara, California",
+      "confidence": 0.9,
+      "source": "NVIDIA Corporation",
+      "target": "California"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "NVIDIA designs the GPU hardware, including the A100",
+      "confidence": 0.9,
+      "source": "A100",
+      "target": "NVIDIA Corporation"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "NVIDIA designs the GPU hardware, including the H100",
+      "confidence": 0.9,
+      "source": "H100",
+      "target": "NVIDIA Corporation"
+    },
+    {
+      "relation_type": "powers",
+      "evidence": "GPU hardware that powers most modern AI training and inference workloads",
+      "confidence": 0.9,
+      "source": "GPU",
+      "target": "AI"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "foundation of virtually all modern large language models including GPT-4",
+      "confidence": 0.9,
+      "source": "Transformer",
+      "target": "GPT-4"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "foundation of virtually all modern large language models including LLaMA",
+      "confidence": 0.9,
+      "source": "Transformer",
+      "target": "LLaMA"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "foundation of virtually all modern large language models including Claude",
+      "confidence": 0.9,
+      "source": "Transformer",
+      "target": "Claude"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "introduced in the 2017 paper 'Attention Is All You Need' by Ashish Vaswani and colleagues",
+      "confidence": 0.9,
+      "source": "Ashish Vaswani",
+      "target": "Transformer"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "at Google Brain",
+      "confidence": 0.9,
+      "source": "Ashish Vaswani",
+      "target": "Google Brain"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "founded by Clement Delangue",
+      "confidence": 0.9,
+      "source": "Hugging Face",
+      "target": "Clement Delangue"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "founded by Julien Chaumond",
+      "confidence": 0.9,
+      "source": "Hugging Face",
+      "target": "Julien Chaumond"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "founded by Thomas Wolf",
+      "confidence": 0.9,
+      "source": "Hugging Face",
+      "target": "Thomas Wolf"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "headquartered in New York City",
+      "confidence": 0.9,
+      "source": "Hugging Face",
+      "target": "New York City"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "maintains the Hugging Face Hub",
+      "confidence": 0.9,
+      "source": "Hugging Face",
+      "target": "Hugging Face Hub"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "repository of machine learning models",
+      "confidence": 0.9,
+      "source": "Hugging Face Hub",
+      "target": "machine learning"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "originally developed by Meta AI",
+      "confidence": 0.9,
+      "source": "PyTorch",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "maintained_by",
+      "evidence": "maintained by the PyTorch Foundation",
+      "confidence": 0.9,
+      "source": "PyTorch",
+      "target": "PyTorch Foundation"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "under the Linux Foundation",
+      "confidence": 0.9,
+      "source": "PyTorch Foundation",
+      "target": "Linux Foundation"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "Stability AI, founded by Emad Mostaque",
+      "confidence": 0.9,
+      "source": "Stability AI",
+      "target": "Emad Mostaque"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "Stability AI developed Stable Diffusion",
+      "confidence": 0.9,
+      "source": "Stability AI",
+      "target": "Stable Diffusion"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "Stability AI is headquartered in London",
+      "confidence": 0.9,
+      "source": "Stability AI",
+      "target": "London"
+    },
+    {
+      "relation_type": "competes_with",
+      "evidence": "Stable Diffusion competes with DALL-E",
+      "confidence": 0.9,
+      "source": "Stable Diffusion",
+      "target": "DALL-E"
+    },
+    {
+      "relation_type": "competes_with",
+      "evidence": "Stable Diffusion competes with Midjourney",
+      "confidence": 0.9,
+      "source": "Stable Diffusion",
+      "target": "Midjourney"
+    },
+    {
+      "relation_type": "developed_by",
+      "evidence": "DALL-E (developed by OpenAI)",
+      "confidence": 0.9,
+      "source": "DALL-E",
+      "target": "OpenAI"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "Mistral AI was founded in April 2023 by Arthur Mensch, Guillaume Lample, and Timothee Lacroix",
+      "confidence": 0.9,
+      "source": "Mistral AI",
+      "target": "Arthur Mensch"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "Mistral AI was founded in April 2023 by Arthur Mensch, Guillaume Lample, and Timothee Lacroix",
+      "confidence": 0.9,
+      "source": "Mistral AI",
+      "target": "Guillaume Lample"
+    },
+    {
+      "relation_type": "founded_by",
+      "evidence": "Mistral AI was founded in April 2023 by Arthur Mensch, Guillaume Lample, and Timothee Lacroix",
+      "confidence": 0.9,
+      "source": "Mistral AI",
+      "target": "Timothee Lacroix"
+    },
+    {
+      "relation_type": "headquartered_in",
+      "evidence": "Mistral AI is headquartered in Paris, France",
+      "confidence": 0.9,
+      "source": "Mistral AI",
+      "target": "Paris"
+    },
+    {
+      "relation_type": "released_by",
+      "evidence": "The company released Mixtral 8x7B, a mixture-of-experts language model",
+      "confidence": 0.9,
+      "source": "Mistral AI",
+      "target": "Mixtral 8x7B"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former researchers from Google DeepMind and Meta AI",
+      "confidence": 0.6,
+      "source": "Arthur Mensch",
+      "target": "Google DeepMind"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former researchers from Google DeepMind and Meta AI",
+      "confidence": 0.6,
+      "source": "Arthur Mensch",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former researchers from Google DeepMind and Meta AI",
+      "confidence": 0.6,
+      "source": "Guillaume Lample",
+      "target": "Google DeepMind"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former researchers from Google DeepMind and Meta AI",
+      "confidence": 0.6,
+      "source": "Guillaume Lample",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former researchers from Google DeepMind and Meta AI",
+      "confidence": 0.6,
+      "source": "Timothee Lacroix",
+      "target": "Google DeepMind"
+    },
+    {
+      "relation_type": "works_at",
+      "evidence": "former researchers from Google DeepMind and Meta AI",
+      "confidence": 0.6,
+      "source": "Timothee Lacroix",
+      "target": "Meta AI"
+    },
+    {
+      "relation_type": "released_by",
+      "evidence": "Gemini was built by Google DeepMind and released in December 2023",
+      "confidence": 0.9,
+      "source": "Google",
+      "target": "Gemini"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "Google DeepMind is a subsidiary of Google",
+      "confidence": 0.8,
+      "source": "Google",
+      "target": "Google DeepMind"
+    },
+    {
+      "relation_type": "succeeded_by",
+      "evidence": "succeeding their earlier PaLM models",
+      "confidence": 0.9,
+      "source": "Gemini",
+      "target": "PaLM"
+    },
+    {
+      "relation_type": "powers",
+      "evidence": "Gemini Ultra achieved state-of-the-art performance on multiple benchmarks and powers Google's Bard (now Gemini) chatbot",
+      "confidence": 0.9,
+      "source": "Gemini Ultra",
+      "target": "Bard"
+    },
+    {
+      "relation_type": "powers",
+      "evidence": "Gemini Ultra achieved state-of-the-art performance on multiple benchmarks and powers Google's Bard (now Gemini) chatbot",
+      "confidence": 0.9,
+      "source": "Gemini Ultra",
+      "target": "Google's Bard (now Gemini) chatbot"
+    },
+    {
+      "relation_type": "based_on",
+      "evidence": "Bard (now Gemini) chatbot",
+      "confidence": 0.8,
+      "source": "Bard",
+      "target": "Gemini"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "large language models as a path to AGI",
+      "confidence": 0.6,
+      "source": "Large Language Models",
+      "target": "Artificial General Intelligence"
+    },
+    {
+      "relation_type": "invested_in",
+      "evidence": "Microsoft invested over $10 billion in OpenAI",
+      "confidence": 0.9,
+      "source": "Microsoft",
+      "target": "OpenAI"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "integrated GPT-4 into its products",
+      "confidence": 0.9,
+      "source": "Microsoft",
+      "target": "GPT-4"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "Microsoft Copilot",
+      "confidence": 0.9,
+      "source": "Bing Chat",
+      "target": "Microsoft"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "Microsoft 365 Copilot",
+      "confidence": 0.9,
+      "source": "Microsoft 365 Copilot",
+      "target": "Microsoft"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "GitHub Copilot",
+      "confidence": 0.9,
+      "source": "GitHub Copilot",
+      "target": "Microsoft"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "Microsoft Azure",
+      "confidence": 0.9,
+      "source": "Microsoft Azure",
+      "target": "Microsoft"
+    },
+    {
+      "relation_type": "invested_in",
+      "evidence": "Amazon Web Services (AWS) invested up to $4 billion in Anthropic in 2023",
+      "confidence": 0.9,
+      "source": "Amazon Web Services",
+      "target": "Anthropic"
+    },
+    {
+      "relation_type": "competes_with",
+      "evidence": "AWS competes with Microsoft Azure and Google Cloud Platform in the cloud AI infrastructure market",
+      "confidence": 0.9,
+      "source": "Amazon Web Services",
+      "target": "Microsoft Azure"
+    },
+    {
+      "relation_type": "competes_with",
+      "evidence": "AWS competes with Microsoft Azure and Google Cloud Platform in the cloud AI infrastructure market",
+      "confidence": 0.9,
+      "source": "Amazon Web Services",
+      "target": "Google Cloud Platform"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "The AI safety research community includes organisations like the Center for AI Safety (CAIS)",
+      "confidence": 0.9,
+      "source": "Center for AI Safety",
+      "target": "AI safety research community"
+    },
+    {
+      "relation_type": "part_of",
+      "evidence": "The AI safety research community includes organisations like the Machine Intelligence Research Institute (MIRI)",
+      "confidence": 0.9,
+      "source": "Machine Intelligence Research Institute",
+      "target": "AI safety research community"
+    },
+    {
+      "relation_type": "concerns",
+      "evidence": "Key concerns include alignment",
+      "confidence": 0.9,
+      "source": "AI safety research community",
+      "target": "alignment"
+    },
+    {
+      "relation_type": "concerns",
+      "evidence": "Key concerns include interpretability",
+      "confidence": 0.9,
+      "source": "AI safety research community",
+      "target": "interpretability"
+    },
+    {
+      "relation_type": "concerns",
+      "evidence": "Key concerns include existential risk from advanced AI systems",
+      "confidence": 0.9,
+      "source": "AI safety research community",
+      "target": "existential risk from advanced AI systems"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "alignment (ensuring AI systems act according to human values)",
+      "confidence": 0.9,
+      "source": "AI systems",
+      "target": "alignment"
+    },
+    {
+      "relation_type": "powers",
+      "evidence": "existential risk from advanced AI systems",
+      "confidence": 0.9,
+      "source": "AI systems",
+      "target": "existential risk from advanced AI systems"
+    },
+    {
+      "relation_type": "uses",
+      "evidence": "interpretability (understanding how AI models make decisions)",
+      "confidence": 0.9,
+      "source": "AI models",
+      "target": "interpretability"
+    }
+  ]
+}

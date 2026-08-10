@@ -1,0 +1,51 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "entity_type": "company",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "Globex Inc"
+    },
+    {
+      "entity_type": "person",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "Hank Scorpio"
+    },
+    {
+      "entity_type": "product",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "Widget Pro"
+    },
+    {
+      "entity_type": "place",
+      "description": "",
+      "aliases": [],
+      "metadata": {},
+      "id": "APAC Region"
+    }
+  ],
+  "edges": [
+    {
+      "relation_type": "developing",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Globex Inc",
+      "target": "Widget Pro"
+    },
+    {
+      "relation_type": "ceo_of",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Hank Scorpio",
+      "target": "Globex Inc"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "passed": 3,
+  "failed": 0,
+  "details": [
+    {
+      "test": "Name and workplace",
+      "question": "What is my name and where do I work?",
+      "response": "I remember that you're Dr. Elena Vasquez. As for your workplace, I recall that you're a neuroscientist at Stanford. Is there anything specific you'd like to know or discuss about your research or work?",
+      "expected_keywords": [
+        "elena",
+        "vasquez",
+        "stanford"
+      ],
+      "found_keywords": [
+        "elena",
+        "vasquez",
+        "stanford"
+      ],
+      "passed": true
+    },
+    {
+      "test": "Research topic",
+      "question": "What am I researching?",
+      "response": "You're researching the effects of sleep deprivation on synaptic plasticity with 7 PhD students in your lab at Stanford. I remember that was a topic we discussed in our previous conversation. You also mentioned how you see potential connections between Thomas Kuhn's ideas in 'The Structure of Scientific Revolutions' and your research findings. Would you like to explore that connection further or discuss any updates on your research projects?",
+      "expected_keywords": [
+        "sleep",
+        "synaptic",
+        "plasticity"
+      ],
+      "found_keywords": [
+        "sleep",
+        "synaptic",
+        "plasticity"
+      ],
+      "passed": true
+    },
+    {
+      "test": "Favourite book",
+      "question": "What is my favourite book?",
+      "response": "I'm glad we're catching up again. You mentioned earlier that your favorite book is 'The Structure of Scientific Revolutions' by Thomas Kuhn. You even mentioned it in our previous conversation when we discussed the potential connections between Kuhn's ideas and your research on sleep deprivation and synaptic plasticity.",
+      "expected_keywords": [
+        "kuhn",
+        "scientific",
+        "revolutions"
+      ],
+      "found_keywords": [
+        "kuhn",
+        "scientific",
+        "revolutions"
+      ],
+      "passed": true
+    }
+  ]
+}

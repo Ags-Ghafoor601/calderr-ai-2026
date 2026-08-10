@@ -1,0 +1,51 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "entity_type": "person",
+      "description": "The primary user",
+      "aliases": [],
+      "metadata": {},
+      "id": "Alice"
+    },
+    {
+      "entity_type": "concept",
+      "description": "Alice's machine learning project",
+      "aliases": [],
+      "metadata": {},
+      "id": "ML Project"
+    },
+    {
+      "entity_type": "technology",
+      "description": "Alice's preferred language",
+      "aliases": [],
+      "metadata": {},
+      "id": "Python"
+    }
+  ],
+  "edges": [
+    {
+      "relation_type": "working_on",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Alice",
+      "target": "ML Project"
+    },
+    {
+      "relation_type": "prefers",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "Alice",
+      "target": "Python"
+    },
+    {
+      "relation_type": "built_with",
+      "confidence": 0.8,
+      "evidence": "",
+      "source": "ML Project",
+      "target": "Python"
+    }
+  ]
+}
